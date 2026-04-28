@@ -1,0 +1,189 @@
+# Per-slot + per-class affix priority recommendations.
+#
+# These are hand-curated v1.5 recommendations following current Maxroll /
+# Mobalytics consensus for Diablo IV Season 12. They are NOT extracted from
+# d4data — they're build-class-agnostic priorities the player can use as a
+# starting point if their build doesn't specify rolled affixes.
+#
+# Each slot entry has:
+#   priority:  ordered list of generic affixes to look for
+#   greater_priority: which of these should you greater-affix when possible
+#   tempering: typical tempering manuals to apply on this slot
+#
+# Class entries override or add per-class affixes (e.g. Sorcerer-only keys).
+
+slots:
+  helm:
+    priority:
+      - Cooldown Reduction
+      - Maximum Life
+      - Total Armor
+      - Resource Generation
+    greater_priority:
+      - Cooldown Reduction
+      - Maximum Life
+    tempering:
+      - "<class>: skill-rank temper"
+      - "<defense>: armor or life temper"
+
+  chest:
+    priority:
+      - Damage Reduction
+      - Damage Reduction from Distant
+      - Maximum Life
+      - Total Armor
+    greater_priority:
+      - Damage Reduction
+      - Maximum Life
+
+  gloves:
+    priority:
+      - Critical Strike Chance
+      - Attack Speed
+      - Lucky Hit Chance
+      - "+Ranks to Core Skills"
+    greater_priority:
+      - Critical Strike Chance
+      - "+Ranks to Core Skills"
+
+  pants:
+    priority:
+      - Damage Reduction
+      - Maximum Life
+      - Total Armor
+      - Dodge Chance
+    greater_priority:
+      - Damage Reduction
+      - Maximum Life
+
+  boots:
+    priority:
+      - Movement Speed
+      - Maximum Life
+      - Class Resource Generation
+      - Cold Resistance
+    greater_priority:
+      - Maximum Life
+
+  amulet:
+    priority:
+      - "+Ranks to Defensive / Mastery skills"
+      - Movement Speed
+      - Damage Reduction
+      - Resistance to All Elements
+    greater_priority:
+      - "+Ranks to key passives"
+
+  ring_1:
+    priority:
+      - Critical Strike Damage
+      - Vulnerable Damage
+      - Resource Generation
+      - Lucky Hit Chance
+    greater_priority:
+      - Critical Strike Damage
+      - Vulnerable Damage
+
+  ring_2:
+    priority:
+      - Critical Strike Damage
+      - Vulnerable Damage
+      - Resource Generation
+      - Lucky Hit Chance
+    greater_priority:
+      - Critical Strike Damage
+      - Vulnerable Damage
+
+  weapon_1h_a:
+    priority:
+      - Damage to Close
+      - Damage to Distant
+      - Vulnerable Damage
+      - Damage to Crowd Controlled
+      - Critical Strike Damage
+    greater_priority:
+      - Vulnerable Damage
+      - Critical Strike Damage
+
+  weapon_1h_b:
+    priority:
+      - Damage to Close
+      - Damage to Distant
+      - Vulnerable Damage
+      - Critical Strike Damage
+    greater_priority:
+      - Vulnerable Damage
+
+  weapon_2h:
+    priority:
+      - Damage to Close
+      - Damage to Distant
+      - Vulnerable Damage
+      - Critical Strike Damage
+      - Damage to Crowd Controlled
+    greater_priority:
+      - Vulnerable Damage
+      - Critical Strike Damage
+
+  offhand:
+    priority:
+      - Lucky Hit Chance
+      - Cooldown Reduction
+      - "+Ranks to skills"
+      - Maximum Life
+    greater_priority:
+      - Cooldown Reduction
+
+  ranged:
+    priority:
+      - Damage to Distant
+      - Vulnerable Damage
+      - Critical Strike Damage
+    greater_priority:
+      - Vulnerable Damage
+
+# Class-specific overlays — added to every weapon/armor slot for that class.
+classes:
+  sorcerer:
+    everywhere_bonus:
+      - Intelligence (core stat)
+      - Lucky Hit (procs Crackling Energy / Burning / Frozen)
+    weapon_extra:
+      - Mana Cost Reduction
+    helm_extra:
+      - Mana Regeneration
+
+  barbarian:
+    everywhere_bonus:
+      - Strength (core stat)
+      - Bleeding Damage
+    weapon_extra:
+      - Damage to Bleeding
+
+  rogue:
+    everywhere_bonus:
+      - Dexterity (core stat)
+      - Lucky Hit
+    weapon_extra:
+      - Damage Over Time
+
+  necromancer:
+    everywhere_bonus:
+      - Intelligence (core stat)
+      - Damage to Healthy
+    weapon_extra:
+      - Damage to Healthy
+
+  druid:
+    everywhere_bonus:
+      - Willpower (core stat)
+      - Damage to Crowd Controlled
+    weapon_extra:
+      - Overpower Damage
+
+  spiritborn:
+    everywhere_bonus:
+      - Dexterity (core stat)
+      - Damage to Crowd Controlled
+    weapon_extra:
+      - Damage to Crowd Controlled

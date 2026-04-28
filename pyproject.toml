@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "d4-build"
+version = "0.1.0"
+description = "Diablo IV character build advisor — recommends a meta build, explains the math behind it"
+requires-python = ">=3.10"
+dependencies = [
+    "typer>=0.12",
+    "httpx[http2]>=0.27",
+    "curl-cffi>=0.7",
+    "pydantic>=2.6",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+    "jinja2>=3.1",
+    "pyyaml>=6.0",
+    "platformdirs>=4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+[project.scripts]
+d4-build = "d4_build.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+d4_build = ["data/*.yaml", "report/templates/*.j2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"

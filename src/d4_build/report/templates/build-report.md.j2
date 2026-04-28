@@ -1,0 +1,228 @@
+# {{ build.archetype }} {{ build.class_.name }} — {{ build.role }}
+
+{%- if build.season %}
+**Season:** {{ build.season }}
+{%- endif %}
+**Tier:** {{ build.tier }} &nbsp;|&nbsp; **Build ID:** `{{ build.id }}` &nbsp;|&nbsp; **Fetched:** {{ build.fetched_at.strftime('%Y-%m-%d %H:%M UTC') }}
+
+> _Source of truth: Maxroll. The ranked damage breakdown below is build-specific._
+
+{%- if build.variant_scores %}
+
+## Variant comparison — picked: **{{ build.chosen_variant }}**
+
+Maxroll's planner ships several progression variants per build. We score each on three heuristic axes (Damage / Survive / Sustain, 0-100, *between-variant comparison only*) using item power, world tier, gear-slot count, and unique-item count. The best composite wins — that's the variant detailed in this report.
+
+| Variant | Lvl | wTier | Slots | Uniques | Avg pwr | Damage | Survive | Sustain | **Composite** |
+|---------|----:|------:|------:|--------:|--------:|-------:|--------:|--------:|--------------:|
+{%- for s in build.variant_scores | sort(attribute='composite', reverse=true) %}
+| {% if s.name == build.chosen_variant %}**{{ s.name }} ◀**{% else %}{{ s.name }}{% endif %} | {{ s.level }} | {{ s.world_tier }} | {{ s.slots_filled }} | {{ s.uniques_count }} | {{ "%.0f"|format(s.avg_item_power) }} | {{ "%.1f"|format(s.damage) }} | {{ "%.1f"|format(s.survive) }} | {{ "%.1f"|format(s.sustain) }} | **{{ "%.1f"|format(s.composite) }}** |
+{%- endfor %}
+
+_Composite = 0.5·Damage + 0.3·Survive + 0.2·Sustain. The "Skill Progression" variant scores 0 because it carries no gear — it's a documentation aid, not a playable loadout._
+
+{%- endif %}
+
+---
+
+## 1. Skills
+
+### Action bar (in order)
+
+| Slot | Skill |
+|------|-------|
+{%- for s in build.skills_in_order %}
+| {{ loop.index }} | **{{ s.name }}** |
+{%- endfor %}
+
+{%- if build.enchants %}
+
+### Sorcerer Enchantments
+{%- for e in build.enchants %}
+- {{ e | replace('Sorcerer_Enchantment_', '') | replace('_', ' ') }}
+{%- endfor %}
+{%- endif %}
+
+{%- if build.skill_tree_steps %}
+
+### Point allocation order
+
+Spend skill points in this order. By the end of each step, your cumulative point count should match the listed total.
+
+| Step | Milestone | Points added | Total points | Active nodes |
+|------|-----------|-------------:|-------------:|-------------:|
+{%- for s in build.skill_tree_steps %}
+| {{ s.order }} | **{{ s.name }}** | +{{ s.points_added }} | {{ s.total_points }} | {{ s.nodes_active }} |
+{%- endfor %}
+
+_Note: D4's skill tree gives 1 point per level (1-50), so the final total here is the cap you'll hit at level 50._
+
+#### Specific nodes activated per step
+
+Names are resolved from a hand-curated overrides table where d4data is missing the class. Items marked `(?)` are inferred from the milestone-name context — verify against the planner UI: `{{ build.source_urls.get('planner', '') }}`.
+
+{% for s in build.skill_tree_steps %}
+**{{ s.order }}. {{ s.name }}** ({{ s.nodes_active }} nodes total)
+
+{% for nid in s.node_ids -%}
+{% set label = s.node_labels[loop.index0] if s.node_labels and loop.index0 < (s.node_labels | length) else "" -%}
+- {% if label %}{{ label }} &nbsp; <sub>`{{ nid }}`</sub>{% else %}_(node `{{ nid }}` — unmapped)_{% endif %}
+{% endfor %}
+{% endfor %}
+{%- endif %}
+
+{%- if build.rotation_prose %}
+
+### Rotation
+{{ build.rotation_prose }}
+{%- endif %}
+
+---
+
+## 2. Equipment
+
+{% set uniques = build.gear.values() | selectattr("is_unique") | list %}
+{%- if uniques %}
+### MUST HAVE — Unique items
+
+{%- for it in uniques %}
+- **{{ it.name }}** &nbsp;_({{ it.slot.value }})_
+{%- endfor %}
+
+{%- endif %}
+
+### Full gear summary
+
+| Slot | Item | Power | GA | Unique? |
+|------|------|------:|---:|---------|
+{%- for slot, it in build.gear.items() %}
+| `{{ slot.value }}` | {{ it.name }} | {{ it.power }} | {{ it.greater_affix_count }} | {% if it.is_unique %}**YES**{% else %}—{% endif %} |
+{%- endfor %}
+
+### Per-item detail (for duplication)
+
+{%- for slot, it in build.gear.items() %}
+
+#### `{{ slot.value }}` — {{ it.name }} {% if it.is_unique %}_(UNIQUE){% else %}_(legendary){% endif %}_
+
+- **Power**: {{ it.power }}{% if it.upgrade %} &nbsp; **Upgrade**: +{{ it.upgrade }}{% endif %}{% if it.greater_affix_count %} &nbsp; **Greater affixes**: {{ it.greater_affix_count }}{% endif %}
+{%- if it.aspect_name or it.aspect_id %}
+- **Aspect**: {{ it.aspect_name or it.aspect_id }}
+{%- endif %}
+{%- if it.implicits %}
+- **Implicits**:
+{%- for a in it.implicits %}
+    - {{ a.label or a.key or ('affix #' ~ a.nid) }} = {{ "%.2f"|format(a.value) }}
+{%- endfor %}
+{%- endif %}
+{%- if it.explicits %}
+- **Explicit affixes (rolled)**:
+{%- for a in it.explicits %}
+    - {% if a.greater %}**[GA]** {% endif %}{{ a.label or a.key or ('affix #' ~ a.nid) }} = {{ "%.2f"|format(a.value) }}{% if a.upgrade %} _(masterwork +{{ a.upgrade }})_{% endif %}
+{%- endfor %}
+{%- endif %}
+{%- if it.tempered %}
+- **Tempered affixes**:
+{%- for a in it.tempered %}
+    - {{ a.label or a.key or ('affix #' ~ a.nid) }} = {{ "%.2f"|format(a.value) }}
+{%- endfor %}
+{%- endif %}
+{%- if it.socket_count %}
+- **Sockets**: {{ it.socket_count }}{% if it.sockets %} ({{ it.sockets | join(', ') }}){% endif %}
+{%- endif %}
+{%- if it.suggested_affixes %}
+- **Suggested affix priority for this slot** (use when crafting/replacing):
+{%- for s in it.suggested_affixes %}
+    - {{ s }}
+{%- endfor %}
+{%- endif %}
+
+  <sub>cross-reference: `{{ it.pool_id }}`</sub>
+{%- endfor %}
+
+---
+
+## 3. Paragon
+
+{%- if build.paragon_path %}
+
+### Board sequence
+
+| # | Board |
+|---|-------|
+{%- for b in build.paragon_path %}
+| {{ b.placement_order }} | {{ b.name }} |
+{%- endfor %}
+{%- else %}
+_(paragon board sequence not extracted in this version)_
+{%- endif %}
+
+{%- if build.paragon_steps %}
+
+### Point allocation steps
+
+Walk this from the top — each step is a checkpoint where you should aim to reach the listed node count on each board (and equip the listed glyph) before moving on. Numbers are points spent on that board *up to and including this step*.
+
+{%- for step in build.paragon_steps %}
+
+**Step {{ step.order }} — {{ step.name }}** ({{ step.total_points }} total points)
+
+| Board | Points | Rotation | Glyph | Node IDs (sample) |
+|-------|------:|--------:|-------|-------|
+{%- for bs in step.boards %}
+| {{ bs.board_name }} | {{ bs.node_count }} | {{ ['N','E','S','W'][bs.rotation % 4] }} | {% if bs.glyph_id %}{{ bs.glyph_name or bs.glyph_id }}{% if bs.glyph_rank %} (r{{ bs.glyph_rank }}){% endif %}{% else %}—{% endif %} | {{ bs.node_ids[:8] | join(', ') }}{% if bs.node_ids | length > 8 %}, … (+{{ bs.node_ids | length - 8 }} more){% endif %} |
+{%- endfor %}
+{%- endfor %}
+{%- endif %}
+
+---
+
+## 4. Stat Priorities
+
+{%- if build.stat_priorities %}
+{% for p in build.stat_priorities %}
+- **{{ p.name }}** — {{ p.target }}{% if p.notes %} ({{ p.notes }}){% endif %}
+{%- endfor %}
+{%- else %}
+_(stat priority section not extracted in this version — refer to source guide)_
+{%- endif %}
+
+---
+
+## 5. Damage breakdown — what actually carries this build
+
+**Dominant bucket: `{{ breakdown.dominant_bucket.value }}`**
+
+| Bucket | Contribution |
+|--------|-------------:|
+{%- for c in breakdown.per_bucket %}
+| {{ c.bucket.value }} | {{ "%.1f"|format(c.contribution_pct) }}% |
+{%- endfor %}
+
+{{ breakdown.explanation_prose }}
+
+---
+
+## 6. Verify in-game (15 min)
+
+- [ ] Damage on training dummy in Kyovashad matches the source guide's stated range
+- [ ] Pit / Torment tier targeted in source guide clears comfortably (under 5 min)
+- [ ] Resource generation never feels starved during the rotation above
+
+---
+
+## 7. Compare against (eyeball it yourself)
+
+- Mobalytics: <https://mobalytics.gg/diablo-4/builds/{{ build.class_.slug }}>
+- d4builds.gg: <https://d4builds.gg/builds/?class={{ build.class_.slug }}>
+- Icy Veins: <https://www.icy-veins.com/d4/{{ build.class_.slug }}/{{ build.archetype | lower | replace(' ', '-') }}-build-guide>
+
+---
+
+## 8. Data freshness
+
+{%- for k, url in build.source_urls.items() %}
+- **{{ k }}**: <{{ url }}>
+{%- endfor %}
+- **Fetched:** {{ build.fetched_at.strftime('%Y-%m-%d %H:%M UTC') }}
+- **Planner ID:** `{{ build.planner_id }}`
