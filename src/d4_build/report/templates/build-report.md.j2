@@ -57,6 +57,20 @@ Spend skill points in this order. By the end of each step, your cumulative point
 
 _Note: D4's skill tree gives 1 point per level (1-50), so the final total here is the cap you'll hit at level 50._
 
+{% if build.skill_point_clicks %}
+#### Click-by-click skill-point allocation
+
+Spend each skill point in this exact order. Each row is **one click** in the planner UI.
+
+| Lvl | Point # | Click on | Milestone |
+|----:|--------:|----------|-----------|
+{% for c in build.skill_point_clicks -%}
+| {{ c.level }} | {{ c.point_number }} | {% if c.node_label %}{{ c.node_label }}{% else %}node `{{ c.node_id }}`{% endif %}{% if c.new_rank > 1 %} → rank {{ c.new_rank }}{% endif %} | _{{ c.step_name }}_ |
+{% endfor %}
+
+If a row shows just `node \`nnnn\`` without a name, the override table doesn't have it yet — open the planner URL in section 8's footer and verify visually.
+{% endif %}
+
 #### Specific nodes activated per step
 
 Names are resolved from a hand-curated overrides table where d4data is missing the class. Items marked `(?)` are inferred from the milestone-name context — verify against the planner UI: `{{ build.source_urls.get('planner', '') }}`.
@@ -138,6 +152,23 @@ Names are resolved from a hand-curated overrides table where d4data is missing t
 {%- endif %}
 
   <sub>cross-reference: `{{ it.pool_id }}`</sub>
+{%- endfor %}
+
+### Crafting workflow per slot — affix-hunting cheatsheet
+
+Use this as the loop you run at every gear upgrade. Items go through 4 stages: **loot/gamble → reroll → temper → masterwork**.
+
+1. **Loot or gamble** an item with the right slot at item-power 800 or higher.
+2. **Inspect rolls.** Keep if it has at least 2 affixes from the slot's top-3 priority list and one socket. Otherwise salvage and try again.
+3. **Reroll at the Occultist** (60-80M gold per slot is normal) — target the 4th affix to match the priority list.
+4. **Temper** at the Blacksmith using the recommended manuals.
+5. **Masterwork** to +12 — every 4th rank (4, 8, 12) rolls a +25% to a random affix. Use these to amplify the priority target.
+6. **Greater Affix** (gold-bordered) on a top-priority stat is worth ~5x — keep an eye out and don't reroll those off.
+
+| Slot | Top 3 affixes | GA priority | Tempering manuals | Masterwork target |
+|------|---------------|-------------|-------------------|-------------------|
+{%- for slot, it in build.gear.items() %}
+| `{{ slot.value }}` | {{ it.suggested_affixes[:3] | join(', ') if it.suggested_affixes else '—' }} | {% if it.suggested_affixes %}{{ it.suggested_affixes[0] }}{% else %}—{% endif %} | {{ it.tempering | join('; ') if it.tempering else '—' }} | {{ it.masterwork_priority | join(', ') if it.masterwork_priority else '—' }} |
 {%- endfor %}
 
 ---

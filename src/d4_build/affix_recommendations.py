@@ -49,3 +49,14 @@ def suggested_affixes_for(slot: GearSlot, class_slug: str = "") -> list[str]:
 def greater_priority_for(slot: GearSlot) -> list[str]:
     data = _load()
     return list(((data.get("slots") or {}).get(slot.value, {}) or {}).get("greater_priority") or [])
+
+
+def tempering_for(slot: GearSlot) -> list[str]:
+    data = _load()
+    return list(((data.get("slots") or {}).get(slot.value, {}) or {}).get("tempering") or [])
+
+
+def masterwork_target_for(slot: GearSlot) -> str:
+    data = _load()
+    raw = ((data.get("slots") or {}).get(slot.value, {}) or {}).get("masterwork_target")
+    return str(raw) if raw else ""

@@ -15,7 +15,7 @@ from .class_ import GameClass
 from .enums import DamageBucket, GearSlot
 from .item import Item
 from .paragon import ParagonBoard, ParagonStep
-from .skill import Skill, SkillTreeStep
+from .skill import Skill, SkillPointClick, SkillTreeStep
 
 
 class StatPriority(BaseModel):
@@ -59,6 +59,7 @@ class Build(BaseModel):
     role: str
     skills_in_order: list[Skill] = []
     skill_tree_steps: list[SkillTreeStep] = []
+    skill_point_clicks: list[SkillPointClick] = []
     enchants: list[str] = []
     gear: dict[GearSlot, Item] = {}
     paragon_path: list[ParagonBoard] = []

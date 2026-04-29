@@ -13,7 +13,11 @@ from __future__ import annotations
 import re
 from datetime import datetime, timezone
 
-from .affix_recommendations import suggested_affixes_for
+from .affix_recommendations import (
+    masterwork_target_for,
+    suggested_affixes_for,
+    tempering_for,
+)
 from .config import maxroll_guide_url, maxroll_planner_url
 from .humanize import humanize_key
 from .model import (
@@ -26,6 +30,7 @@ from .model import (
     ParagonBoardSnapshot,
     ParagonStep,
     Skill,
+    SkillPointClick,
     SkillTreeStep,
     StatPriority,
     VariantScore,
@@ -199,6 +204,93 @@ def _build_skill_tree_steps(
             )
         )
         prev_total = total_points
+    return out
+
+
+def _build_skill_point_clicks(
+    variant: PlannerVariant | None,
+    class_slug: str = "",
+) -> list[SkillPointClick]:
+    """Flatten step-checkpoints into a per-level "click here" allocation order.
+
+    The planner gives us cumulative end-state at each named step (e.g. by
+    "lvl 9 Eviscerate" the tree is `{node_a: 2, node_b: 1, ...}`). Between
+    consecutive steps we compute the rank-delta per node and emit one click
+    per added rank.
+
+    Within a step we order clicks by `node_id` ascending — a heuristic that
+    roughly tracks D4's tree-tier order (Basic = lowest IDs, then Core,
+    Defensive, Mastery, Ultimate). For mapped names with explicit tier
+    keywords we keep the basic-first ordering even more reliably. The level
+    each click happens at is inferred from the step's *end-level* parsed from
+    its name (e.g. "lvl 9 Eviscerate" -> end-level 9), distributing the
+    points-added evenly across the levels gained since the previous step.
+    """
+    if not variant or not variant.skill_tree:
+        return []
+    raw_steps = variant.skill_tree.get("steps", []) or []
+    if not raw_steps:
+        return []
+
+    out: list[SkillPointClick] = []
+    prev_ranks: dict[str, int] = {}
+    prev_total = 0
+    prev_end_level = 0  # character level at the end of the previous step
+    point_n = 0
+
+    for step in raw_steps:
+        data = step.get("data") or {}
+        if not isinstance(data, dict):
+            continue
+        cur_ranks = {k: int(v) for k, v in data.items() if int(v) > 0}
+        added: list[tuple[str, int]] = []
+        for node_id, rank in cur_ranks.items():
+            delta = rank - prev_ranks.get(node_id, 0)
+            for r in range(prev_ranks.get(node_id, 0) + 1, rank + 1):
+                added.append((node_id, r))
+        # Stable, basic-first heuristic: order by integer node id ascending.
+        added.sort(key=lambda nr: (int(nr[0]), nr[1]))
+
+        cur_total = sum(cur_ranks.values())
+        points_added = max(cur_total - prev_total, 0)
+        # Determine end-level for this step from the name; fallback to a
+        # 1-point-per-level cadence anchored at level 2.
+        step_name = str(step.get("name", ""))
+        m = re.search(r"\b(?:lvl|level)\s*(\d+)\b", step_name, flags=re.I)
+        if m:
+            end_level = int(m.group(1))
+        elif prev_end_level == 0:
+            # First step; assume final level == cumulative points + 1
+            end_level = max(cur_total + 1, 2)
+        else:
+            end_level = prev_end_level + points_added
+
+        # Spread added clicks across levels prev_end_level+1 .. end_level.
+        levels_available = max(end_level - prev_end_level, points_added)
+        for i, (node_id, new_rank) in enumerate(added):
+            point_n += 1
+            level = (
+                prev_end_level
+                + 1
+                + min(i, max(levels_available - 1, 0))
+            )
+            label = _node_label_for(class_slug, node_id) if class_slug else ""
+            out.append(
+                SkillPointClick(
+                    level=level,
+                    point_number=point_n,
+                    node_id=node_id,
+                    node_label=label,
+                    new_rank=new_rank,
+                    step_name=step_name,
+                    cumulative_total=prev_total + i + 1,
+                )
+            )
+
+        prev_ranks = cur_ranks
+        prev_total = cur_total
+        prev_end_level = end_level
+
     return out
 
 
@@ -438,6 +530,8 @@ def _build_items(
             sockets=sockets,
             greater_affix_count=greater_count,
             suggested_affixes=suggested_affixes_for(gear_slot, class_slug),
+            tempering=tempering_for(gear_slot),
+            masterwork_priority=[masterwork_target_for(gear_slot)],
         )
         used_slots.add(gear_slot)
     return out
@@ -586,6 +680,9 @@ def reconcile(
         role=meta.role or "Endgame",
         skills_in_order=_build_skills(profile.skill_names, variant, cls.id),
         skill_tree_steps=_build_skill_tree_steps(
+            progression_variant or variant, cls.id
+        ),
+        skill_point_clicks=_build_skill_point_clicks(
             progression_variant or variant, cls.id
         ),
         enchants=_readable_enchants(variant, d4data),

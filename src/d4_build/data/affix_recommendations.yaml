@@ -23,8 +23,9 @@ slots:
       - Cooldown Reduction
       - Maximum Life
     tempering:
-      - "<class>: skill-rank temper"
-      - "<defense>: armor or life temper"
+      - "Class skill rank: pick the manual matching your build's primary skill"
+      - "Defensive utility: Armor% or Life% manual, whichever you're missing"
+    masterwork_target: Cooldown Reduction
 
   chest:
     priority:
@@ -35,6 +36,10 @@ slots:
     greater_priority:
       - Damage Reduction
       - Maximum Life
+    tempering:
+      - "Class skill rank for a defensive skill (Ice Armor / Iron Skin / Bone Storm equivalent)"
+      - "Damage Reduction temper if available"
+    masterwork_target: Damage Reduction
 
   gloves:
     priority:
@@ -45,6 +50,10 @@ slots:
     greater_priority:
       - Critical Strike Chance
       - "+Ranks to Core Skills"
+    tempering:
+      - "Core skill rank for your damage skill"
+      - "Attack Speed or Lucky Hit utility temper"
+    masterwork_target: Critical Strike Chance
 
   pants:
     priority:
@@ -55,6 +64,10 @@ slots:
     greater_priority:
       - Damage Reduction
       - Maximum Life
+    tempering:
+      - "Damage Reduction temper"
+      - "Mobility / dodge temper"
+    masterwork_target: Damage Reduction
 
   boots:
     priority:
@@ -64,6 +77,10 @@ slots:
       - Cold Resistance
     greater_priority:
       - Maximum Life
+    tempering:
+      - "Mobility skill rank (Teleport / Leap / Dash / Nether Step)"
+      - "Movement Speed temper"
+    masterwork_target: Movement Speed
 
   amulet:
     priority:
@@ -73,6 +90,10 @@ slots:
       - Resistance to All Elements
     greater_priority:
       - "+Ranks to key passives"
+    tempering:
+      - "Class passive-rank temper for a high-impact key passive"
+      - "Resistance overcap temper"
+    masterwork_target: "+Ranks to key passive"
 
   ring_1:
     priority:
@@ -83,6 +104,10 @@ slots:
     greater_priority:
       - Critical Strike Damage
       - Vulnerable Damage
+    tempering:
+      - "Damage-vs-state temper (Crowd Controlled / Vulnerable / Burning, per build)"
+      - "Resource generation temper"
+    masterwork_target: Critical Strike Damage
 
   ring_2:
     priority:
@@ -93,6 +118,10 @@ slots:
     greater_priority:
       - Critical Strike Damage
       - Vulnerable Damage
+    tempering:
+      - "Damage-vs-state temper (Crowd Controlled / Vulnerable / Burning, per build)"
+      - "Resource generation temper"
+    masterwork_target: Vulnerable Damage
 
   weapon_1h_a:
     priority:
@@ -104,6 +133,10 @@ slots:
     greater_priority:
       - Vulnerable Damage
       - Critical Strike Damage
+    tempering:
+      - "Damage-vs-state matching your build (Burning / Bleeding / Frozen / etc.)"
+      - "Crit Strike Damage temper"
+    masterwork_target: Vulnerable Damage
 
   weapon_1h_b:
     priority:
@@ -113,6 +146,10 @@ slots:
       - Critical Strike Damage
     greater_priority:
       - Vulnerable Damage
+    tempering:
+      - "Damage-vs-state temper for build's debuff"
+      - "Crit Strike Damage temper"
+    masterwork_target: Vulnerable Damage
 
   weapon_2h:
     priority:
@@ -124,6 +161,10 @@ slots:
     greater_priority:
       - Vulnerable Damage
       - Critical Strike Damage
+    tempering:
+      - "Damage-vs-state temper matching your build's primary debuff"
+      - "Crit Strike Damage / Crit Strike Chance temper"
+    masterwork_target: Vulnerable Damage
 
   offhand:
     priority:
@@ -133,6 +174,10 @@ slots:
       - Maximum Life
     greater_priority:
       - Cooldown Reduction
+    tempering:
+      - "Cooldown Reduction temper"
+      - "Lucky Hit utility temper"
+    masterwork_target: Cooldown Reduction
 
   ranged:
     priority:
@@ -141,6 +186,9 @@ slots:
       - Critical Strike Damage
     greater_priority:
       - Vulnerable Damage
+    tempering:
+      - "Damage to Distant"
+    masterwork_target: Vulnerable Damage
 
 # Class-specific overlays — added to every weapon/armor slot for that class.
 classes:

@@ -33,3 +33,16 @@ class SkillTreeStep(BaseModel):
     node_ids: list[str] = []
     node_labels: list[str] = []  # parallel to node_ids; "" if unresolved
 
+
+class SkillPointClick(BaseModel):
+    """One concrete `click here at level X` instruction in the allocation order."""
+
+    model_config = ConfigDict(extra="forbid")
+    level: int  # character level when this point is spent
+    point_number: int  # 1-based ordinal of this point across the whole tree
+    node_id: str
+    node_label: str = ""
+    new_rank: int = 1
+    step_name: str = ""  # which named milestone this click belongs to
+    cumulative_total: int = 0
+
