@@ -1,108 +1,19 @@
 # Manual skill-tree node-ID -> name overrides.
 #
-# Used as a STOPGAP until d4data ships an update that includes the relevant
-# class skill tree definitions. When d4data has the data, this file should be
-# deleted and the lookup chain in `reconcile.py` will fall through automatically.
+# This is a STOPGAP for cases d4data doesn't cover. The primary resolver is
+# `D4DataLookup.skill_node_label_for(class, node_id)`, which reads
+# `base/meta/SkillKit/<Class>.skl.json` and returns a humanized power name
+# from `arNodes[i].gbidReward.name`. When that returns a non-empty string,
+# the YAML below is *not* consulted.
 #
-# Naming convention:
-# - Names mirror Maxroll's planner UI labels.
-# - "(Basic)" / "(Core)" / "(Defensive)" / "(Mastery)" / "(Ultimate)" / "(Key Passive)"
-#   suffixes mark cluster type when the role is identifiable.
-# - "(?)" suffix marks a low-confidence inference — verify against the planner URL
-#   in the report's data-freshness footer before acting on it.
+# Use this file ONLY for nodes d4data fails to resolve (e.g., a brand-new
+# class added in a patch d4data hasn't shipped yet, or rare nodes whose
+# gbid name doesn't exist in the SkillKit). Keep this file empty when
+# everything resolves through d4data.
 #
-# Confidence is graded by how many independent build variants reference the
-# same node id in the same role. Universal nodes (used by every variant of
-# the class) are HIGH confidence; per-archetype nodes are inferred from step
-# naming.
+# Format:
+#   <class_slug>:
+#     "<node_id>": "<display name>"
 
-# Warlock — derived 2026-04-27 by cross-referencing the 5 leveling guides
-# Maxroll published pre-launch. Verify after Lord of Hatred goes live (Apr 28)
-# and remove this whole class entry once d4data has Warlock.
-warlock:
-  # Basic skills (lvl 1-4 starter cluster)
-  "9001": "Eviscerate (Basic)"
-  "9034": "Hellion Sting (Basic)"
-
-  # Core skills (namesake of each leveling archetype)
-  "9079": "Dread Claws (Core)"
-  "9068": "Bombardment (Core)"
-  "9090": "Blazing Scream (Core)"
-  "9057": "Hell Fracture (Core)"
-
-  # Eviscerate cluster add-ons (lvl 9 "Eviscerate" milestone)
-  "9041": "Eviscerate — Enhanced (?)"
-  "9043": "Eviscerate — variant pick (?)"
-  "9086": "Eviscerate — adjacent passive (?)"
-  "9142": "Eviscerate — adjacent passive (?)"
-
-  # Sigil cluster (lvl 13 "Sigil" milestone)
-  "9088": "Sigil of Subversion — adjacent (?)"
-  "9145": "Sigil cluster passive (?)"
-  "9178": "Sigil cluster passive (?)"
-  "9192": "Sigil cluster passive (?)"
-  "9075": "Sigil of Summons — adjacent (?)"
-
-  # Hellion Sting variants (lvl 15 "Main Variants")
-  "9037": "Hellion Sting — variant pick (?)"
-  "9082": "Hellion Sting — variant pick (?)"
-  "9135": "Hellion Sting — adjacent passive (?)"
-
-  # Mobility / Mastery cluster (lvl 23 "Infiltration Trails")
-  "9172": "Nether Step — adjacent (?)"
-  "9176": "Mobility cluster passive (universal)"
-  "9196": "Mastery passive (?)"
-  "9199": "Mastery passive (?)"
-  "9201": "Mastery passive (?)"
-
-  # Summon cluster (lvl 34 "Recall Shadows")
-  "9139": "Summon Taz'Rauth — adjacent (?)"
-
-  # Universal passives (referenced by every build variant)
-  "9169": "Warlock Key Passive (universal)"
-
-  # Other archetype-specific picks observed in non-Dread-Claws variants
-  "9008": "Rampage — variant (?)"
-  "9010": "Initial upgrade cluster (?)"
-  "9098": "Blazing Scream — adjacent (?)"
-  "9099": "Blazing Scream — adjacent (?)"
-  "9124": "Defensive cluster passive (?)"
-  "9132": "Defensive cluster passive (?)"
-  "9134": "Rampage — adjacent (?)"
-  "9128": "Dark Prison variant (?)"
-  "9171": "Rampage variant (?)"
-  "9217": "Final variant (?)"
-  "9214": "Sigil variant (?)"
-  "9221": "Scaling cluster (?)"
-  "9223": "Scaling cluster (?)"
-  "9226": "Ultimate (?)"
-  "9229": "Ultimate (?)"
-  "9233": "Ultimate (?)"
-  "9235": "Ultimate (?)"
-  "9203": "Sigil of Summons — adjacent (?)"
-  "9210": "Sigil of Summons — adjacent (?)"
-  "9072": "Bombardment — variant (?)"
-  "9078": "Bombardment — adjacent (?)"
-  "9092": "Blazing Scream — adjacent (?)"
-  "9076": "Bombardment — adjacent (?)"
-  "9259": "Ultimate (?)"
-  "9263": "Ultimate upgrade (?)"
-  "9267": "Ultimate upgrade (?)"
-  "9269": "Ultimate upgrade (?)"
-  "9205": "Skill upgrade (?)"
-  "9212": "Ultimate (?)"
-  "9173": "Skill upgrade (?)"
-  "9213": "Skill upgrade (?)"
-  "9216": "Ultimate (?)"
-  "9248": "Ultimate (?)"
-  "9251": "Ultimate (?)"
-  "9255": "Ultimate (?)"
-  "9258": "Ultimate (?)"
-  "9059": "Hell Fracture — adjacent (?)"
-  "9230": "Abyss swap (?)"
-  "9234": "Abyss swap (?)"
-  "9061": "Hell Fracture — variant (?)"
-  "9065": "Rampage — adjacent (?)"
-  "9067": "Dark Prison — variant (?)"
-  "9179": "Rampage — adjacent (?)"
-  "9207": "Hellwyrm (?)"
+# (currently empty — Warlock node IDs resolve via d4data SkillKit since
+# Lord of Hatred shipped on 2026-04-28)

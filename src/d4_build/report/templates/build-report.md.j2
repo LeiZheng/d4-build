@@ -68,12 +68,12 @@ Spend each skill point in this exact order. Each row is **one click** in the pla
 | {{ c.level }} | {{ c.point_number }} | {% if c.node_label %}{{ c.node_label }}{% else %}node `{{ c.node_id }}`{% endif %}{% if c.new_rank > 1 %} → rank {{ c.new_rank }}{% endif %} | _{{ c.step_name }}_ |
 {% endfor %}
 
-If a row shows just `node \`nnnn\`` without a name, the override table doesn't have it yet — open the planner URL in section 8's footer and verify visually.
+If a row shows just `node \`nnnn\`` without a name, the resolver couldn't find the SkillKit entry — open the planner URL in section 8's footer and verify visually.
 {% endif %}
 
 #### Specific nodes activated per step
 
-Names are resolved from a hand-curated overrides table where d4data is missing the class. Items marked `(?)` are inferred from the milestone-name context — verify against the planner UI: `{{ build.source_urls.get('planner', '') }}`.
+Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` map from planner node ID → power codename → humanized label. Format: `<Skill> [— Upgrade N] (<Cluster>)`. Verify visually against the planner UI: `{{ build.source_urls.get('planner', '') }}`.
 
 {% for s in build.skill_tree_steps %}
 **{{ s.order }}. {{ s.name }}** ({{ s.nodes_active }} nodes total)

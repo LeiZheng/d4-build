@@ -36,7 +36,7 @@ from .model import (
     VariantScore,
 )
 from .scoring import best_variant_name, score_all_variants
-from .skill_node_overrides import label_for as _node_label_for
+from .skill_node_overrides import label_for as _node_override_for
 from .parsers.guide_html import GuideMeta
 from .parsers.planner_remix import PlannerProfileData, PlannerVariant
 from .sources.d4data import D4DataLookup
@@ -175,9 +175,23 @@ def _pick_skill_progression_variant(
     return by_step_count[0] if by_step_count else None
 
 
+def _resolve_node_label(
+    class_slug: str,
+    node_id: str,
+    lookup: D4DataLookup | None,
+) -> str:
+    """Resolve a planner node ID to a readable name. d4data wins, YAML is fallback."""
+    if lookup:
+        n = lookup.skill_node_label_for(class_slug, node_id)
+        if n:
+            return n
+    return _node_override_for(class_slug, node_id)
+
+
 def _build_skill_tree_steps(
     variant: PlannerVariant | None,
     class_slug: str = "",
+    lookup: D4DataLookup | None = None,
 ) -> list[SkillTreeStep]:
     if not variant or not variant.skill_tree:
         return []
@@ -191,7 +205,7 @@ def _build_skill_tree_steps(
         nonzero = {k: int(v) for k, v in data.items() if int(v) > 0}
         total_points = sum(nonzero.values())
         node_ids = sorted(nonzero.keys(), key=lambda k: int(k))
-        node_labels = [_node_label_for(class_slug, nid) for nid in node_ids]
+        node_labels = [_resolve_node_label(class_slug, nid, lookup) for nid in node_ids]
         out.append(
             SkillTreeStep(
                 order=i,
@@ -210,6 +224,7 @@ def _build_skill_tree_steps(
 def _build_skill_point_clicks(
     variant: PlannerVariant | None,
     class_slug: str = "",
+    lookup: D4DataLookup | None = None,
 ) -> list[SkillPointClick]:
     """Flatten step-checkpoints into a per-level "click here" allocation order.
 
@@ -274,7 +289,11 @@ def _build_skill_point_clicks(
                 + 1
                 + min(i, max(levels_available - 1, 0))
             )
-            label = _node_label_for(class_slug, node_id) if class_slug else ""
+            label = (
+                _resolve_node_label(class_slug, node_id, lookup)
+                if class_slug
+                else ""
+            )
             out.append(
                 SkillPointClick(
                     level=level,
@@ -680,10 +699,10 @@ def reconcile(
         role=meta.role or "Endgame",
         skills_in_order=_build_skills(profile.skill_names, variant, cls.id),
         skill_tree_steps=_build_skill_tree_steps(
-            progression_variant or variant, cls.id
+            progression_variant or variant, cls.id, d4data
         ),
         skill_point_clicks=_build_skill_point_clicks(
-            progression_variant or variant, cls.id
+            progression_variant or variant, cls.id, d4data
         ),
         enchants=_readable_enchants(variant, d4data),
         gear=_build_items(

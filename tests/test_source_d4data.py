@@ -58,3 +58,33 @@ def test_resolves_glyph_name(lookup: D4DataLookup) -> None:
 
 def test_glyph_name_returns_none_for_unknown(lookup: D4DataLookup) -> None:
     assert lookup.glyph_name_for("Rare_NEVERSEEN_999") is None
+
+
+def test_humanize_skill_gbid_basic_examples() -> None:
+    """The codename humanizer round-trips canonical SkillKit gbid names."""
+    from d4_build.sources.d4data import _humanize_skill_gbid
+
+    cases = [
+        ("Warlock_Defensive_AbyssDemon1", "Abyss Demon1 (Defensive)"),
+        ("Warlock_Core_AbyssDemon", "Abyss Demon (Core)"),
+        ("Warlock_Basic_Demon2", "Demon2 (Basic)"),
+        ("Warlock_Core_AbyssDemon_Upgrade1", "Abyss Demon — Upgrade 1 (Core)"),
+        ("Warlock_Sigil_Abyss", "Abyss (Sigil)"),
+        ("Sorcerer_Mastery_FireOrb", "Fire Orb (Mastery)"),
+    ]
+    for gbid, expected in cases:
+        got = _humanize_skill_gbid(gbid)
+        assert got == expected, f"{gbid!r}: expected {expected!r}, got {got!r}"
+
+
+def test_skill_node_label_for_unknown_class_returns_empty(lookup: D4DataLookup) -> None:
+    """A class without a SkillKit file returns empty string."""
+    assert lookup.skill_node_label_for("notaclass", 761) == ""
+
+
+def test_skill_node_label_for_handles_string_node_id(lookup: D4DataLookup) -> None:
+    """node_id can be passed as int or string."""
+    # Both valid string and int IDs should not crash.
+    assert isinstance(lookup.skill_node_label_for("warlock", "761"), str)
+    assert isinstance(lookup.skill_node_label_for("warlock", 761), str)
+    assert lookup.skill_node_label_for("warlock", "not-a-number") == ""

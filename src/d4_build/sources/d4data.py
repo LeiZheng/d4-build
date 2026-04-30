@@ -25,6 +25,7 @@ class D4DataLookup:
         self.d4data_root = Path(d4data_root) if d4data_root else default_d4data_root()
         self._memo: dict[str, str | None] = {}
         self._affix_nid_index: dict[int, str] | None = None
+        self._skill_kit_cache: dict[str, dict[int, str]] = {}
 
     @property
     def stringlist_dir(self) -> Path:
@@ -33,6 +34,10 @@ class D4DataLookup:
     @property
     def affix_dir(self) -> Path:
         return self.d4data_root / "json" / "base" / "meta" / "Affix"
+
+    @property
+    def skill_kit_dir(self) -> Path:
+        return self.d4data_root / "json" / "base" / "meta" / "SkillKit"
 
     def is_available(self) -> bool:
         return self.stringlist_dir.exists()
@@ -85,6 +90,65 @@ class D4DataLookup:
         if not isinstance(nid, int):
             return None
         return self._load_affix_index().get(nid)
+
+    def _load_skill_kit_node_map(self, class_slug: str) -> dict[int, str]:
+        """Build (and cache) the dwID -> gbidReward.name map for a class's SkillKit.
+
+        SkillKit files live at `base/meta/SkillKit/<Class>.skl.json`. Each node
+        in `arNodes` carries a `dwID` (the same numeric ID Maxroll's planner
+        uses) and a `gbidReward.name` (the internal codename like
+        'Warlock_Defensive_AbyssDemon1').
+        """
+        cache_key = class_slug.lower()
+        if cache_key in self._skill_kit_cache:
+            return self._skill_kit_cache[cache_key]
+
+        if not self.is_available():
+            self._skill_kit_cache[cache_key] = {}
+            return {}
+
+        # SkillKit filenames are TitleCase, e.g. Warlock.skl.json
+        path = self.skill_kit_dir / f"{class_slug.title()}.skl.json"
+        if not path.exists():
+            self._skill_kit_cache[cache_key] = {}
+            return {}
+
+        try:
+            data = json.loads(path.read_text())
+        except (OSError, json.JSONDecodeError):
+            self._skill_kit_cache[cache_key] = {}
+            return {}
+
+        node_map: dict[int, str] = {}
+        for node in data.get("arNodes", []) or []:
+            nid = node.get("dwID")
+            gbid = node.get("gbidReward")
+            if isinstance(nid, int) and isinstance(gbid, dict):
+                name = gbid.get("name")
+                if isinstance(name, str) and name:
+                    node_map[nid] = name
+        self._skill_kit_cache[cache_key] = node_map
+        return node_map
+
+    def skill_node_label_for(self, class_slug: str, node_id: int | str) -> str:
+        """Resolve a planner node ID to a humanized skill name.
+
+        Returns "" if d4data isn't available or the class/node isn't found.
+        Output examples:
+            - 761 -> 'Abyss Demon (Defensive)'
+            - 848 -> 'Abyss Demon (Core)'
+            - 944 -> 'Demon 2 (Basic)'
+            - 838 -> 'Abyss Sigil'
+        """
+        try:
+            nid = int(node_id)
+        except (TypeError, ValueError):
+            return ""
+        node_map = self._load_skill_kit_node_map(class_slug)
+        gbid = node_map.get(nid)
+        if not gbid:
+            return ""
+        return _humanize_skill_gbid(gbid)
 
     def name_for(self, item_id: str) -> str | None:
         """Return the display name for a Maxroll-style item id, or None."""
@@ -166,3 +230,71 @@ class D4DataLookup:
 
 def default_d4data_root() -> Path:
     return cache_dir() / "d4data"
+
+
+_TIER_LABELS = {
+    "Basic": "Basic",
+    "Core": "Core",
+    "Defensive": "Defensive",
+    "Mastery": "Mastery",
+    "Ultimate": "Ultimate",
+    "Archfiend": "Archfiend",
+    "Sigil": "Sigil",
+    "Conjuration": "Conjuration",
+    "Werebear": "Werebear",
+    "Werewolf": "Werewolf",
+    "Earth": "Earth",
+    "Storm": "Storm",
+    "Cold": "Cold",
+    "Fire": "Fire",
+    "Lightning": "Lightning",
+    "Specialization": "Specialization",
+    "Trap": "Trap",
+    "Curse": "Curse",
+    "Bone": "Bone",
+    "Blood": "Blood",
+    "Brawling": "Brawling",
+    "Imbuement": "Imbuement",
+    "Subterfuge": "Subterfuge",
+}
+
+
+_CLASS_PREFIXES = (
+    "Warlock", "Sorcerer", "Barbarian", "Druid", "Necromancer",
+    "Rogue", "Spiritborn", "Paladin",
+)
+
+
+def _humanize_skill_gbid(gbid: str) -> str:
+    """Render a SkillKit gbid name into something readable.
+
+    Example: `Warlock_Defensive_AbyssDemon1_Upgrade1` →
+        'Abyss Demon 1 — Upgrade 1 (Defensive)'
+    """
+    import re
+
+    parts = gbid.split("_")
+    if parts and parts[0] in _CLASS_PREFIXES:
+        parts = parts[1:]
+    if not parts:
+        return gbid
+
+    tier = ""
+    if parts[0] in _TIER_LABELS:
+        tier = _TIER_LABELS[parts[0]]
+        parts = parts[1:]
+
+    upgrade_suffix = ""
+    if parts and parts[-1].startswith("Upgrade"):
+        upgrade_suffix = " — Upgrade " + parts[-1][len("Upgrade"):]
+        parts = parts[:-1]
+
+    body_tokens: list[str] = []
+    for chunk in parts:
+        spaced = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", " ", chunk)
+        spaced = re.sub(r"(?<=[A-Z])(?=[A-Z][a-z])", " ", spaced)
+        body_tokens.extend(spaced.split())
+    body = " ".join(body_tokens) if body_tokens else gbid
+    if tier:
+        return f"{body}{upgrade_suffix} ({tier})"
+    return f"{body}{upgrade_suffix}"
