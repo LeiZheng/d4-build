@@ -72,6 +72,7 @@ class Build(BaseModel):
     planner_id: str = ""
     fetched_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     rotation_prose: str = ""
+    leveling_sections: dict[str, str] = {}  # heading -> prose for "How To Level" etc.
     conflicts: list[dict[str, Any]] = []
 
 

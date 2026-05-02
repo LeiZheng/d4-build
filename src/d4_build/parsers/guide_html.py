@@ -134,6 +134,15 @@ def parse_guide_html(html: str) -> GuideMeta:
             "Paragon & Glyphs",
             "Items, Mercs & Runes",
             "Season Theme",
+            "Class Mechanic - Soul Shards",
+            "How To Level",
+            "Campaign Leveling",
+            "Seasonal / Alt Leveling",
+            "Tips and Tricks",
+            "Speedrun Route",
+            "Endgame Transition",
+            "Final Journey to Level 70",
+            "Skill Tree Progression",
         )
     }
 

@@ -727,4 +727,18 @@ def reconcile(
         planner_id=profile.id,
         fetched_at=datetime.now(timezone.utc),
         rotation_prose=meta.sections.get("Skill Rotation", ""),
+        leveling_sections={
+            k: v
+            for k, v in (meta.sections or {}).items()
+            if v and k in (
+                "How To Level",
+                "Campaign Leveling",
+                "Seasonal / Alt Leveling",
+                "Tips and Tricks",
+                "Speedrun Route",
+                "Class Mechanic - Soul Shards",
+                "Final Journey to Level 70",
+                "Endgame Transition",
+            )
+        },
     )

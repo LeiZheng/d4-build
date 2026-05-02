@@ -251,6 +251,53 @@ _(stat priority section not extracted in this version — refer to source guide)
 
 ---
 
+{% if build.leveling_sections %}
+## 6.5. Most important tasks to complete (from Maxroll guide)
+
+{% if build.leveling_sections.get('Class Mechanic - Soul Shards') %}
+### Class Mechanic — Soul Shards _(unlock at lvl 15)_
+{{ build.leveling_sections['Class Mechanic - Soul Shards'] }}
+
+{% endif %}
+{% if build.leveling_sections.get('How To Level') %}
+### How To Level
+{{ build.leveling_sections['How To Level'] }}
+
+{% endif %}
+{% if build.leveling_sections.get('Campaign Leveling') %}
+### Campaign route
+{{ build.leveling_sections['Campaign Leveling'] }}
+
+{% endif %}
+{% if build.leveling_sections.get('Seasonal / Alt Leveling') %}
+### Seasonal / Alt route
+{{ build.leveling_sections['Seasonal / Alt Leveling'] }}
+
+{% endif %}
+{% if build.leveling_sections.get('Tips and Tricks') %}
+### Tips & tricks
+{{ build.leveling_sections['Tips and Tricks'] }}
+
+{% endif %}
+{% if build.leveling_sections.get('Speedrun Route') %}
+### Speedrun route
+{{ build.leveling_sections['Speedrun Route'] }}
+
+{% endif %}
+{% if build.leveling_sections.get('Final Journey to Level 70') %}
+### Final journey to level 70
+{{ build.leveling_sections['Final Journey to Level 70'] }}
+
+{% endif %}
+{% if build.leveling_sections.get('Endgame Transition') %}
+### Endgame transition
+{{ build.leveling_sections['Endgame Transition'] }}
+
+{% endif %}
+
+---
+{% endif %}
+
 ## 7. Compare against (eyeball it yourself)
 
 - Mobalytics: <https://mobalytics.gg/diablo-4/builds/{{ build.class_.slug }}>

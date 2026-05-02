@@ -72,6 +72,13 @@ def show_cmd(
         Path("build-report.md"), "--out", "-o", help="Output path."
     ),
     refresh: bool = typer.Option(False, "--refresh", help="Force re-fetch."),
+    points: int = typer.Option(
+        0,
+        "--points",
+        "-p",
+        help="If >0, truncate the click-by-click skill-point table after this "
+        "many points (useful for showing 'allocate at level X'). 0 = full sequence.",
+    ),
 ) -> None:
     """Fetch a Maxroll guide + planner, render the build report."""
     source = _make_source(force_refresh=refresh)
@@ -103,6 +110,10 @@ def show_cmd(
     )
     d4data = D4DataLookup()
     build = reconcile(meta, profile, guide_url=guide_url, d4data=d4data)
+    if points and points > 0:
+        build = build.model_copy(update={
+            "skill_point_clicks": build.skill_point_clicks[:points],
+        })
     md = render_build(build)
     out.write_text(md)
     d4data_note = (
