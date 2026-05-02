@@ -139,9 +139,17 @@ def optimize_cmd(
         help="Gear tier baseline: sacred / ancestral / legendary / mythic.",
     ),
     refresh: bool = typer.Option(False, "--refresh", help="Force re-fetch."),
+    show_marginals: bool = typer.Option(
+        False, "--marginals", help="Print per-point marginal Δ table."
+    ),
+    run_search: bool = typer.Option(
+        False, "--search", help="Run greedy hill-climb search over the full SkillKit."
+    ),
 ) -> None:
     """Run the heuristic skill-allocation optimizer for a build."""
     from .optimize.skill_allocation import optimize as run_optimize
+    from .optimize.marginal import compute_marginals
+    from .optimize.search import greedy_search
 
     source = _make_source(force_refresh=refresh)
     meta = source.get_guide(slug, force_refresh=refresh)
@@ -191,6 +199,82 @@ def optimize_cmd(
             "heuristic.[/yellow]"
         )
     console.print(f"\n[dim]{result.notes}[/dim]")
+
+    if show_marginals:
+        from .optimize.skill_allocation import _scale_build_to_tier
+        scaled = _scale_build_to_tier(build, gear_tier)
+        truncated = scaled.model_copy(update={
+            "skill_point_clicks": scaled.skill_point_clicks[:points],
+        })
+        marginals = compute_marginals(truncated)
+        console.print(f"\n[bold]Per-point marginal table (Maxroll baseline, {gear_tier} gear, {points} points)[/bold]")
+        mtable = Table(show_header=True)
+        mtable.add_column("Lvl", justify="right")
+        mtable.add_column("#", justify="right")
+        mtable.add_column("Click on")
+        mtable.add_column("ΔDmg", justify="right")
+        mtable.add_column("ΔSurv", justify="right")
+        mtable.add_column("ΔSust", justify="right")
+        mtable.add_column("ΔComp", justify="right")
+        mtable.add_column("Cum.Comp", justify="right")
+        for m in marginals:
+            label = m.node_label
+            if m.new_rank > 1:
+                label += f" → r{m.new_rank}"
+            mtable.add_row(
+                str(m.level),
+                str(m.point_number),
+                label[:40],
+                f"{m.delta_damage:+.2f}",
+                f"{m.delta_survive:+.2f}",
+                f"{m.delta_sustain:+.2f}",
+                f"{m.delta_composite:+.2f}",
+                f"{m.cumulative_composite:.1f}",
+            )
+        console.print(mtable)
+
+    if run_search:
+        from .optimize.skill_allocation import _scale_build_to_tier
+        scaled = _scale_build_to_tier(build, gear_tier)
+        console.print(
+            f"\n[bold]Greedy hill-climb over the full {build.class_.name} SkillKit[/bold] "
+            f"({points} points, {gear_tier} gear)"
+        )
+        sr = greedy_search(
+            scaled,
+            total_points=points,
+            class_slug=build.class_.id,
+            d4data=d4data,
+        )
+        if not sr.plan:
+            console.print(f"[red]search failed: {sr.notes}[/red]")
+        else:
+            stable = Table(show_header=True, title="Greedy plan")
+            stable.add_column("Lvl", justify="right")
+            stable.add_column("#", justify="right")
+            stable.add_column("Click on")
+            stable.add_column("Rank", justify="right")
+            for c in sr.plan:
+                stable.add_row(
+                    str(c.level),
+                    str(c.point_number),
+                    c.node_label[:50],
+                    f"{c.new_rank}",
+                )
+            console.print(stable)
+            console.print(
+                f"\n[green]Greedy final composite: {sr.final_stats.composite_score:.2f}[/green] "
+                f"(damage={sr.final_stats.damage_score:.1f}, "
+                f"survive={sr.final_stats.survive_score:.1f}, "
+                f"sustain={sr.final_stats.sustain_score:.1f})"
+            )
+            baseline_composite = result.baseline_stats.composite_score
+            delta = sr.final_stats.composite_score - baseline_composite
+            console.print(
+                f"  vs Maxroll baseline: composite {baseline_composite:.2f} "
+                f"({'+' if delta >= 0 else ''}{delta:.2f})"
+            )
+            console.print(f"\n[dim]{sr.notes}[/dim]")
 
 
 @app.command("refresh")
