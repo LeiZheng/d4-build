@@ -129,6 +129,70 @@ def show_cmd(
     )
 
 
+@app.command("optimize")
+def optimize_cmd(
+    slug: str = typer.Argument(..., help="Maxroll guide slug or full URL."),
+    points: int = typer.Option(40, "--points", "-p", help="Points to allocate."),
+    gear_tier: str = typer.Option(
+        "ancestral",
+        "--tier",
+        help="Gear tier baseline: sacred / ancestral / legendary / mythic.",
+    ),
+    refresh: bool = typer.Option(False, "--refresh", help="Force re-fetch."),
+) -> None:
+    """Run the heuristic skill-allocation optimizer for a build."""
+    from .optimize.skill_allocation import optimize as run_optimize
+
+    source = _make_source(force_refresh=refresh)
+    meta = source.get_guide(slug, force_refresh=refresh)
+    if not meta.planner_id:
+        console.print("[red]guide has no embedded planner[/red]")
+        raise typer.Exit(code=2)
+    profile = source.get_planner(meta.planner_id, force_refresh=refresh)
+    guide_url = (
+        slug if slug.startswith("http")
+        else f"https://maxroll.gg/d4/build-guides/{slug}"
+    )
+    d4data = D4DataLookup()
+    build = reconcile(meta, profile, guide_url=guide_url, d4data=d4data)
+
+    result = run_optimize(build, gear_tier=gear_tier, total_points=points)
+
+    console.print(
+        f"\n[bold]Optimizer for {build.archetype} {build.class_.name}[/bold] "
+        f"({points} points, {gear_tier} gear)\n"
+    )
+    table = Table(title="Candidate sequences (sorted by composite score)")
+    table.add_column("Candidate")
+    table.add_column("Damage", justify="right")
+    table.add_column("Survive", justify="right")
+    table.add_column("Sustain", justify="right")
+    table.add_column("Composite", justify="right")
+    table.add_column("Δ vs baseline", justify="right")
+    for c in sorted(result.candidates, key=lambda x: -x.stats.composite_score):
+        marker = " ◀" if c.name == result.best_name else ""
+        table.add_row(
+            c.name + marker,
+            f"{c.stats.damage_score:.1f}",
+            f"{c.stats.survive_score:.1f}",
+            f"{c.stats.sustain_score:.1f}",
+            f"{c.stats.composite_score:.1f}",
+            f"{c.delta_vs_baseline:+.2f}",
+        )
+    console.print(table)
+    console.print(
+        f"\n[green]Best: {result.best_name}[/green] "
+        f"(+{result.best_delta:.2f} composite vs Maxroll baseline)"
+    )
+    if result.best_name == result.baseline_name:
+        console.print(
+            "[yellow]Note: Maxroll's baseline already wins. The other candidates "
+            "are intermediate-state perturbations that score lower under this "
+            "heuristic.[/yellow]"
+        )
+    console.print(f"\n[dim]{result.notes}[/dim]")
+
+
 @app.command("refresh")
 def refresh_cmd() -> None:
     """Clear all cached pages so the next run re-fetches."""

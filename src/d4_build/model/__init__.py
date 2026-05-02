@@ -12,11 +12,15 @@ from .enums import DamageBucket, GearSlot
 from .item import Item
 from .paragon import Glyph, ParagonBoard, ParagonBoardSnapshot, ParagonNode, ParagonStep
 from .skill import Skill, SkillPointClick, SkillTreeStep
+from .stats import CharacterStats, OptimizerCandidate, OptimizerResult
 
 __all__ = [
     "Affix",
     "ItemAffix",
     "BucketContribution",
+    "CharacterStats",
+    "OptimizerCandidate",
+    "OptimizerResult",
     "Build",
     "BuildSummary",
     "DamageBreakdown",
