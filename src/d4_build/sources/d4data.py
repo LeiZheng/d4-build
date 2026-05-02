@@ -26,6 +26,7 @@ class D4DataLookup:
         self._memo: dict[str, str | None] = {}
         self._affix_nid_index: dict[int, str] | None = None
         self._skill_kit_cache: dict[str, dict[int, str]] = {}
+        self._paragon_board_cache: dict[str, list[str]] = {}
 
     @property
     def stringlist_dir(self) -> Path:
@@ -38,6 +39,10 @@ class D4DataLookup:
     @property
     def skill_kit_dir(self) -> Path:
         return self.d4data_root / "json" / "base" / "meta" / "SkillKit"
+
+    @property
+    def paragon_board_dir(self) -> Path:
+        return self.d4data_root / "json" / "base" / "meta" / "ParagonBoard"
 
     def is_available(self) -> bool:
         return self.stringlist_dir.exists()
@@ -129,6 +134,68 @@ class D4DataLookup:
                     node_map[nid] = name
         self._skill_kit_cache[cache_key] = node_map
         return node_map
+
+    def _load_paragon_board_cells(self, board_id: str) -> list[str]:
+        """Return a 441-entry list mapping cell-index -> ParagonNode codename.
+
+        Empty cells return "" in the list.
+        """
+        if board_id in self._paragon_board_cache:
+            return self._paragon_board_cache[board_id]
+
+        if not self.is_available():
+            self._paragon_board_cache[board_id] = []
+            return []
+
+        path = self.paragon_board_dir / f"{board_id}.pbd.json"
+        if not path.exists():
+            self._paragon_board_cache[board_id] = []
+            return []
+
+        try:
+            data = json.loads(path.read_text())
+        except (OSError, json.JSONDecodeError):
+            self._paragon_board_cache[board_id] = []
+            return []
+
+        cells: list[str] = []
+        for entry in data.get("arEntries", []) or []:
+            if isinstance(entry, dict):
+                cells.append(str(entry.get("name", "")))
+            else:
+                cells.append("")
+        self._paragon_board_cache[board_id] = cells
+        return cells
+
+    def paragon_node_at(self, board_id: str, cell_index: int | str) -> str:
+        """Codename of the ParagonNode at `arEntries[cell_index]` of a board.
+
+        Returns "" if the board doesn't exist or the cell is empty.
+        """
+        try:
+            idx = int(cell_index)
+        except (TypeError, ValueError):
+            return ""
+        cells = self._load_paragon_board_cells(board_id)
+        if 0 <= idx < len(cells):
+            return cells[idx]
+        return ""
+
+    def paragon_node_label_for(self, board_id: str, cell_index: int | str) -> str:
+        """Resolve a board+cell index to a readable name.
+
+        Prefers the StringList display name (e.g. 'Overmind', 'Pyrosis').
+        Falls back to a humanized codename for generic stat nodes
+        (e.g. 'Generic_Normal_Str' -> 'Strength').
+        """
+        codename = self.paragon_node_at(board_id, cell_index)
+        if not codename:
+            return ""
+        # Try StringList: ParagonNode_<codename>.stl.json
+        n = self._lookup_with_prefixes(codename, ("ParagonNode_",))
+        if n:
+            return n
+        return _humanize_paragon_node_codename(codename)
 
     def skill_node_label_for(self, class_slug: str, node_id: int | str) -> str:
         """Resolve a planner node ID to a humanized skill name.
@@ -263,6 +330,55 @@ _CLASS_PREFIXES = (
     "Warlock", "Sorcerer", "Barbarian", "Druid", "Necromancer",
     "Rogue", "Spiritborn", "Paladin",
 )
+
+
+_PARAGON_STAT_LABELS = {
+    "Str": "Strength",
+    "Int": "Intelligence",
+    "Dex": "Dexterity",
+    "Will": "Willpower",
+    "Resource": "Resource",
+    "Health": "Maximum Life",
+    "Defense": "Defense",
+    "Damage": "Damage",
+    "Crit": "Critical",
+    "Vuln": "Vulnerable",
+    "Resist": "Resistance",
+}
+
+
+def _humanize_paragon_node_codename(codename: str) -> str:
+    """`Generic_Normal_Str` -> 'Strength'; `Generic_Magic_Damage` -> 'Magic Damage Node'."""
+    parts = codename.split("_")
+    # Strip leading 'Generic'
+    if parts and parts[0] == "Generic":
+        parts = parts[1:]
+    # Drop kind ('Normal' / 'Magic' / 'Rare' / 'Legendary' / 'Gate')
+    kind = ""
+    if parts and parts[0] in ("Normal", "Magic", "Rare", "Legendary", "Gate", "Socket"):
+        kind = parts[0]
+        parts = parts[1:]
+
+    body = ""
+    if parts:
+        last = parts[-1]
+        if last in _PARAGON_STAT_LABELS:
+            body = _PARAGON_STAT_LABELS[last]
+        else:
+            body = " ".join(parts)
+    if not body:
+        return kind or codename
+
+    if kind == "Gate":
+        return "Gate"
+    if kind == "Magic":
+        return f"{body} (Magic)"
+    if kind == "Rare":
+        return f"{body} (Rare)"
+    if kind == "Normal":
+        # Normal stat nodes: 'Strength', 'Intelligence', etc. — body is enough.
+        return body
+    return body
 
 
 def _humanize_skill_gbid(gbid: str) -> str:

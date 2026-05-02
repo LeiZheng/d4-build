@@ -39,6 +39,7 @@ class ParagonBoardSnapshot(BaseModel):
     board_name: str
     node_count: int
     node_ids: list[str] = []
+    node_labels: list[str] = []  # parallel to node_ids; "" if unresolved
     glyph_id: str = ""
     glyph_name: str = ""
     glyph_rank: int = 0

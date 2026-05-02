@@ -637,12 +637,18 @@ def _build_paragon_steps(
                     glyph_rank = int(glyph_level_raw)
                 except (TypeError, ValueError):
                     pass
+            sorted_nids = sorted(nodes.keys(), key=lambda k: int(k))
+            node_labels = [
+                lookup.paragon_node_label_for(board_id, nid) if lookup else ""
+                for nid in sorted_nids
+            ]
             board_snapshots.append(
                 ParagonBoardSnapshot(
                     board_id=board_id,
                     board_name=_readable_paragon_board_name(board_id, lookup),
                     node_count=node_count,
-                    node_ids=sorted(nodes.keys(), key=lambda k: int(k)),
+                    node_ids=sorted_nids,
+                    node_labels=node_labels,
                     glyph_id=glyph_id,
                     glyph_name=glyph_name,
                     glyph_rank=glyph_rank,

@@ -88,3 +88,34 @@ def test_skill_node_label_for_handles_string_node_id(lookup: D4DataLookup) -> No
     assert isinstance(lookup.skill_node_label_for("warlock", "761"), str)
     assert isinstance(lookup.skill_node_label_for("warlock", 761), str)
     assert lookup.skill_node_label_for("warlock", "not-a-number") == ""
+
+
+def test_humanize_paragon_node_codename() -> None:
+    from d4_build.sources.d4data import _humanize_paragon_node_codename
+
+    cases = [
+        ("Generic_Normal_Str", "Strength"),
+        ("Generic_Normal_Int", "Intelligence"),
+        ("Generic_Normal_Dex", "Dexterity"),
+        ("Generic_Normal_Will", "Willpower"),
+        ("Generic_Gate", "Gate"),
+        ("Generic_Magic_Damage", "Damage (Magic)"),
+        ("Generic_Rare_Crit", "Critical (Rare)"),
+    ]
+    for codename, expected in cases:
+        got = _humanize_paragon_node_codename(codename)
+        assert got == expected, f"{codename!r}: expected {expected!r}, got {got!r}"
+
+
+def test_paragon_node_at_returns_codename(lookup: D4DataLookup) -> None:
+    """The non-fixture lookup pulls cells from the live d4data clone if present.
+
+    Skip when d4data isn't symlinked into the cache dir.
+    """
+    from d4_build.sources.d4data import D4DataLookup, default_d4data_root
+
+    real = D4DataLookup()
+    if not (real.paragon_board_dir / "Paragon_Warlock_00.pbd.json").exists():
+        pytest.skip("d4data Warlock paragon board not present locally")
+    # Cell 10 of Paragon_Warlock_00 is 'Generic_Gate' per the file's arEntries[10].
+    assert real.paragon_node_at("Paragon_Warlock_00", 10) == "Generic_Gate"

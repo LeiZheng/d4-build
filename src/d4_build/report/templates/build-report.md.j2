@@ -198,11 +198,20 @@ Walk this from the top — each step is a checkpoint where you should aim to rea
 
 **Step {{ step.order }} — {{ step.name }}** ({{ step.total_points }} total points)
 
-| Board | Points | Rotation | Glyph | Node IDs (sample) |
-|-------|------:|--------:|-------|-------|
+| Board | Points | Rotation | Glyph |
+|-------|------:|--------:|-------|
 {%- for bs in step.boards %}
-| {{ bs.board_name }} | {{ bs.node_count }} | {{ ['N','E','S','W'][bs.rotation % 4] }} | {% if bs.glyph_id %}{{ bs.glyph_name or bs.glyph_id }}{% if bs.glyph_rank %} (r{{ bs.glyph_rank }}){% endif %}{% else %}—{% endif %} | {{ bs.node_ids[:8] | join(', ') }}{% if bs.node_ids | length > 8 %}, … (+{{ bs.node_ids | length - 8 }} more){% endif %} |
+| {{ bs.board_name }} | {{ bs.node_count }} | {{ ['N','E','S','W'][bs.rotation % 4] }} | {% if bs.glyph_id %}{{ bs.glyph_name or bs.glyph_id }}{% if bs.glyph_rank %} (r{{ bs.glyph_rank }}){% endif %}{% else %}—{% endif %} |
 {%- endfor %}
+
+{% for bs in step.boards %}
+_{{ bs.board_name }}_ — {{ bs.node_count }} pts. Active nodes:
+{% for nid in bs.node_ids -%}
+{% set lbl = bs.node_labels[loop.index0] if bs.node_labels and loop.index0 < (bs.node_labels | length) else "" -%}
+{% if loop.index0 == 0 %}{% else %}, {% endif %}{% if lbl %}{{ lbl }}{% else %}node {{ nid }}{% endif %}
+{%- endfor %}
+
+{% endfor %}
 {%- endfor %}
 {%- endif %}
 
