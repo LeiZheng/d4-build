@@ -38,6 +38,38 @@ def _load() -> dict[str, dict]:
     return raw if isinstance(raw, dict) else {}
 
 
+_CLUSTER_KEYWORDS = (
+    "Basic", "Core", "Defensive", "Sigil", "Mastery",
+    "Archfiend", "Ultimate", "Capstone", "Special",
+)
+
+
+def _cluster_from_codename(codename: str) -> str:
+    """Pull cluster name from `Warlock_Core_AbyssDemon` -> `Core`."""
+    parts = codename.split("_")
+    for p in parts[1:]:
+        if p in _CLUSTER_KEYWORDS:
+            return p
+    return ""
+
+
+@lru_cache(maxsize=1)
+def display_name_to_cluster() -> dict[str, str]:
+    """Reverse-map display_name -> cluster using YAML codename keys."""
+    out: dict[str, str] = {}
+    for codename, entry in _load().items():
+        if not isinstance(entry, dict):
+            continue
+        cluster = _cluster_from_codename(codename)
+        name = entry.get("display_name")
+        if cluster and name:
+            # First entry wins; multiple codenames can share a display_name
+            # (e.g., AbyssDemon1 vs AbyssDemon2 both = "Sigil of Subversion (Defensive)").
+            # Prefer the cluster if not already mapped.
+            out.setdefault(name, cluster)
+    return out
+
+
 def parse_gbid(gbid: str) -> tuple[str, str]:
     """Split `Warlock_Core_AbyssDemon_Upgrade2` -> (`Warlock_Core_AbyssDemon`, `Upgrade2`)."""
     if not gbid:

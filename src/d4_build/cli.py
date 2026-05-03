@@ -277,6 +277,71 @@ def optimize_cmd(
             console.print(f"\n[dim]{sr.notes}[/dim]")
 
 
+@app.command("train")
+def train_cmd(
+    class_slug: str = typer.Argument("warlock", help="Class to train weights against."),
+    role: str = typer.Option("leveling", "--role", help="leveling | endgame"),
+    refresh: bool = typer.Option(False, "--refresh", help="Force re-fetch."),
+) -> None:
+    """Train evaluation weights against Maxroll's published builds."""
+    from .optimize.training import train
+
+    source = _make_source(force_refresh=refresh)
+    summaries = list_class_archetypes(source, class_slug.lower(), force_refresh=refresh)
+    summaries = [s for s in summaries if s.role == role]
+    if not summaries:
+        console.print(f"[red]No {role} builds found for {class_slug}[/red]")
+        raise typer.Exit(2)
+
+    console.print(f"[blue]Loading {len(summaries)} {class_slug} {role} builds for training...[/blue]")
+    positives = []
+    d4data = D4DataLookup()
+    for s in summaries:
+        try:
+            meta = source.get_guide(s.id)
+            if not meta.planner_id:
+                continue
+            profile = source.get_planner(meta.planner_id)
+            build = reconcile(meta, profile, guide_url="", d4data=d4data)
+            if build.skill_point_clicks:
+                positives.append((s.archetype, build.skill_point_clicks, build))
+                console.print(f"  loaded: {s.archetype} ({len(build.skill_point_clicks)} clicks)")
+        except Exception as exc:
+            console.print(f"  [yellow]skipped {s.archetype}: {exc}[/yellow]")
+
+    if not positives:
+        console.print("[red]No usable training data[/red]")
+        raise typer.Exit(2)
+
+    console.print(f"\n[blue]Grid-searching weights against {len(positives)} positives + 4 negatives...[/blue]")
+    result = train(positives)
+
+    console.print(
+        f"\n[bold]Best weights[/bold] (margin {result.margin:+.2f}, "
+        f"rank-correctness {result.rank_correctness_pct:.1f}%):"
+    )
+    for k, v in result.weights.model_dump().items():
+        console.print(f"  {k}: {v}")
+
+    console.print("\n[bold]Positive (Maxroll) scores[/bold]")
+    for name, sc in sorted(result.positive_scores.items(), key=lambda x: -x[1]):
+        console.print(f"  {name:30} {sc:>8.2f}")
+
+    console.print("\n[bold]Negative scores[/bold]")
+    for name, sc in sorted(result.negative_scores.items(), key=lambda x: -x[1]):
+        console.print(f"  {name:30} {sc:>8.2f}")
+
+    if result.margin > 0:
+        console.print(f"\n[green]✓ Maxroll plans dominate negatives by margin {result.margin:.2f}[/green]")
+    else:
+        console.print(
+            f"\n[yellow]⚠ Some negatives outscore some Maxroll plans by {-result.margin:.2f}. "
+            f"Add more constraints or adjust knobs.[/yellow]"
+        )
+
+    console.print(f"\n[dim]{result.notes}[/dim]")
+
+
 @app.command("refresh")
 def refresh_cmd() -> None:
     """Clear all cached pages so the next run re-fetches."""

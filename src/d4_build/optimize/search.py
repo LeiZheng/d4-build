@@ -49,6 +49,32 @@ _CLUSTER_TIER_REQUIREMENT = {
 }
 
 
+# Maximum rank we'll allocate per node before forcing diversification.
+# Active skills (Basic / Core / Sigil / Archfiend) cap higher; passive nodes
+# typically max at 3 in D4. The build script enforces these to prevent the
+# greedy from spamming a single node to rank 15.
+_MAX_RANK_BY_CLUSTER = {
+    "Basic": 5,
+    "Core": 15,
+    "Defensive": 1,
+    "Sigil": 1,
+    "Mastery": 3,
+    "Archfiend": 3,
+    "Ultimate": 1,
+    "Capstone": 1,
+}
+
+
+# Required-cluster check: a viable plan must spend at least N points across
+# these cluster categories. Mirrors D4's "must have a Basic + Core on bar"
+# implicit constraint plus this build's named-cluster reliance.
+_REQUIRED_CLUSTER_POINTS = {
+    "Basic": 1,
+    "Core": 1,
+    "Defensive": 1,
+}
+
+
 def _node_cluster(label: str) -> str:
     """Extract cluster name from `Demon (Core)` -> 'Core'."""
     if "(" in label and ")" in label:
