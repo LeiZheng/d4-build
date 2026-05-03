@@ -59,12 +59,18 @@ Warlock_Core_HellfireDemon:
 
 # === Defensive cluster ===
 
+# Two Defensive Sigil nodes occupy adjacent positions in the cluster.
+# They share the same in-game name but are DIFFERENT nodes you click on
+# at different points in the tree. Maxroll's plan uses Defensive-A as
+# the pre-lvl-34 primary, then activates Defensive-B at the lvl 34
+# respec. We distinguish them so the report doesn't show duplicate rows.
+
 Warlock_Defensive_AbyssDemon1:
-  display_name: "Sigil of Subversion (Defensive)"
+  display_name: "Sigil of Subversion (Defensive A)"
   power_file: Power_Warlock_SigilOfShadows
 
 Warlock_Defensive_AbyssDemon2:
-  display_name: "Sigil of Subversion (Defensive)"
+  display_name: "Sigil of Subversion (Defensive B)"
   power_file: Power_Warlock_SigilOfShadows
 
 Warlock_Defensive_Demon:

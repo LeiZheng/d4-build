@@ -187,6 +187,7 @@ def train(
     positives: list[tuple[str, list[SkillPointClick], Build]],
     *,
     grid_steps: int = 3,
+    seed: int = 42,
 ) -> TrainingResult:
     """Grid-search over a small space of weight knobs.
 
@@ -195,7 +196,9 @@ def train(
     For grid_steps=3 we explore 3 values per knob over a few key knobs;
     that's small enough to finish in seconds.
     """
-    base_negatives_examples = _generate_negatives([p for _, p, _ in positives])
+    base_negatives_examples = _generate_negatives(
+        [p for _, p, _ in positives], seed=seed
+    )
     # Pair negatives with the first positive's build (only thing the
     # evaluator needs from build is gear, which is shared in our case).
     if not positives:
