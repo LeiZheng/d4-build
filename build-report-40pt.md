@@ -1,6 +1,6 @@
 # Dread Claws Warlock — Leveling
 **Season:** Season 13 - Season of Reckoning
-**Tier:** S &nbsp;|&nbsp; **Build ID:** `sf1n6g0v` &nbsp;|&nbsp; **Fetched:** 2026-05-03 01:24 UTC
+**Tier:** S &nbsp;|&nbsp; **Build ID:** `sf1n6g0v` &nbsp;|&nbsp; **Fetched:** 2026-05-03 01:27 UTC
 
 > _Source of truth: Maxroll. The ranked damage breakdown below is build-specific._
 
@@ -60,16 +60,16 @@ Spend each skill point in this exact order. Each row is **one click** in the pla
 
 | Lvl | Point # | Click on | Milestone |
 |----:|--------:|----------|-----------|
-| 1 | 1 | Sigil of Subversion (Defensive node) | _lvl 4 Core_ |
+| 1 | 1 | Sigil of Subversion (Defensive) | _lvl 4 Core_ |
 | 2 | 2 | Dread Claws | _lvl 4 Core_ |
 | 3 | 3 | Hellion Sting | _lvl 4 Core_ |
-| 5 | 4 | Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion | _lvl 9 Eviscerate_ |
+| 5 | 4 | Enhanced Sigil of Subversion (Defensive) | _lvl 9 Eviscerate_ |
 | 6 | 5 | Enhanced Dread Claws | _lvl 9 Eviscerate_ |
 | 7 | 6 | Metamorphosis | _lvl 9 Eviscerate_ |
 | 8 | 7 | Hellion Sting — Tail Spikes | _lvl 9 Eviscerate_ |
 | 9 | 8 | Enhanced Hellion Sting | _lvl 9 Eviscerate_ |
 | 10 | 9 | Enhanced Metamorphosis | _lvl 13 Sigil_ |
-| 11 | 10 | Sigil of Subversion (Defensive node) — Sigil of Lava | _lvl 13 Sigil_ |
+| 11 | 10 | Sigil of Subversion (Defensive) — Sigil of Lava | _lvl 13 Sigil_ |
 | 12 | 11 | Dread Claws — Enveloping Terror | _lvl 13 Sigil_ |
 | 13 | 12 | Sigil of Subversion | _lvl 13 Sigil_ |
 | 14 | 13 | Dread Claws — Cost Reduction | _lvl 15 Main Variants_ |
@@ -82,7 +82,7 @@ Spend each skill point in this exact order. Each row is **one click** in the pla
 | 21 | 20 | Dread Claws → rank 2 | _lvl 23 Infiltration Trails_ |
 | 22 | 21 | Dread Claws → rank 3 | _lvl 23 Infiltration Trails_ |
 | 23 | 22 | Dread Claws → rank 4 | _lvl 23 Infiltration Trails_ |
-| 24 | 23 | Sigil of Subversion (Defensive node) — Slow | _lvl 34 Recall Shadows_ |
+| 24 | 23 | Sigil of Subversion (Defensive) — Slow | _lvl 34 Recall Shadows_ |
 | 25 | 24 | Dread Claws → rank 5 | _lvl 34 Recall Shadows_ |
 | 26 | 25 | Dread Claws → rank 6 | _lvl 34 Recall Shadows_ |
 | 27 | 26 | Dread Claws → rank 7 | _lvl 34 Recall Shadows_ |
@@ -93,10 +93,10 @@ Spend each skill point in this exact order. Each row is **one click** in the pla
 | 32 | 31 | Dread Claws → rank 12 | _lvl 34 Recall Shadows_ |
 | 33 | 32 | Dread Claws → rank 13 | _lvl 34 Recall Shadows_ |
 | 34 | 33 | Dread Claws → rank 14 | _lvl 34 Recall Shadows_ |
-| 35 | 34 | Sigil of Subversion (Defensive variant) — Sigil of Lava | _lvl 34 Respec Fallen + Prison_ |
-| 35 | 35 | Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion | _lvl 34 Respec Fallen + Prison_ |
-| 35 | 36 | Sigil of Subversion (Defensive variant) — Cast Range | _lvl 34 Respec Fallen + Prison_ |
-| 35 | 37 | Sigil of Subversion (Defensive variant) | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 34 | Sigil of Subversion (Defensive) — Sigil of Lava | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 35 | Enhanced Sigil of Subversion (Defensive) | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 36 | Sigil of Subversion (Defensive) — Slow | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 37 | Sigil of Subversion (Defensive) | _lvl 34 Respec Fallen + Prison_ |
 | 35 | 38 | Command Fallen — Mega Lunatic | _lvl 34 Respec Fallen + Prison_ |
 | 35 | 39 | Command Fallen — Fallen Rush | _lvl 34 Respec Fallen + Prison_ |
 | 35 | 40 | Command Fallen — Lifetime Damage | _lvl 34 Respec Fallen + Prison_ |
@@ -112,16 +112,16 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 **1. lvl 4 Core** (3 nodes total)
 
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
 - Dread Claws &nbsp; <sub>`848`</sub>
 - Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **2. lvl 9 Eviscerate** (8 nodes total)
 
-- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`667`</sub>
 - Enhanced Dread Claws &nbsp; <sub>`693`</sub>
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
 - Dread Claws &nbsp; <sub>`848`</sub>
 - Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
@@ -132,11 +132,11 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 **3. lvl 13 Sigil** (12 nodes total)
 
 - Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
-- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
-- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
 - Enhanced Dread Claws &nbsp; <sub>`693`</sub>
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
 - Sigil of Subversion &nbsp; <sub>`838`</sub>
 - Dread Claws &nbsp; <sub>`848`</sub>
@@ -148,11 +148,11 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 **4. lvl 15 Main Variants** (14 nodes total)
 
 - Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
-- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
-- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
 - Enhanced Dread Claws &nbsp; <sub>`693`</sub>
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
 - Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
 - Sigil of Subversion &nbsp; <sub>`838`</sub>
@@ -169,11 +169,11 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 - Sigil of Subversion — Seekers &nbsp; <sub>`610`</sub>
 - Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
-- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
-- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
 - Enhanced Dread Claws &nbsp; <sub>`693`</sub>
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
 - Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
 - Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
 - Sigil of Subversion — Movement Speed &nbsp; <sub>`829`</sub>
@@ -192,12 +192,12 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 - Sigil of Subversion — Seekers &nbsp; <sub>`610`</sub>
 - Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
-- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
-- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
 - Enhanced Dread Claws &nbsp; <sub>`693`</sub>
-- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
 - Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
 - Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
 - Sigil of Subversion — Movement Speed &nbsp; <sub>`829`</sub>
@@ -214,16 +214,16 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 - Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
-- Sigil of Subversion (Defensive variant) — Sigil of Lava &nbsp; <sub>`650`</sub>
-- Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion &nbsp; <sub>`652`</sub>
-- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
-- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`650`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`652`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
 - Enhanced Dread Claws &nbsp; <sub>`693`</sub>
-- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
-- Sigil of Subversion (Defensive variant) — Cast Range &nbsp; <sub>`814`</sub>
-- Sigil of Subversion (Defensive variant) &nbsp; <sub>`821`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`814`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`821`</sub>
 - Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
 - Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
@@ -238,16 +238,16 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 - Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
-- Sigil of Subversion (Defensive variant) — Sigil of Lava &nbsp; <sub>`650`</sub>
-- Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion &nbsp; <sub>`652`</sub>
-- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
-- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`650`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`652`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
 - Enhanced Dread Claws &nbsp; <sub>`693`</sub>
-- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
-- Sigil of Subversion (Defensive variant) — Cast Range &nbsp; <sub>`814`</sub>
-- Sigil of Subversion (Defensive variant) &nbsp; <sub>`821`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`814`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`821`</sub>
 - Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
 - Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
@@ -266,16 +266,16 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 - Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
-- Sigil of Subversion (Defensive variant) — Sigil of Lava &nbsp; <sub>`650`</sub>
-- Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion &nbsp; <sub>`652`</sub>
-- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
-- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`650`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`652`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
 - Enhanced Dread Claws &nbsp; <sub>`693`</sub>
-- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
-- Sigil of Subversion (Defensive variant) — Cast Range &nbsp; <sub>`814`</sub>
-- Sigil of Subversion (Defensive variant) &nbsp; <sub>`821`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`814`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`821`</sub>
 - Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
 - Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
@@ -294,16 +294,16 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 - Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
-- Sigil of Subversion (Defensive variant) — Sigil of Lava &nbsp; <sub>`650`</sub>
-- Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion &nbsp; <sub>`652`</sub>
-- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
-- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`650`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`652`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
 - Enhanced Dread Claws &nbsp; <sub>`693`</sub>
-- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
-- Sigil of Subversion (Defensive variant) — Cast Range &nbsp; <sub>`814`</sub>
-- Sigil of Subversion (Defensive variant) &nbsp; <sub>`821`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`814`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`821`</sub>
 - Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
 - Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
@@ -322,16 +322,16 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 - Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
-- Sigil of Subversion (Defensive variant) — Sigil of Lava &nbsp; <sub>`650`</sub>
-- Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion &nbsp; <sub>`652`</sub>
-- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
-- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`650`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`652`</sub>
+- Enhanced Sigil of Subversion (Defensive) &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
 - Enhanced Dread Claws &nbsp; <sub>`693`</sub>
-- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
-- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
-- Sigil of Subversion (Defensive variant) — Cast Range &nbsp; <sub>`814`</sub>
-- Sigil of Subversion (Defensive variant) &nbsp; <sub>`821`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive) — Slow &nbsp; <sub>`814`</sub>
+- Sigil of Subversion (Defensive) &nbsp; <sub>`821`</sub>
 - Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
 - Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
@@ -856,5 +856,5 @@ You can unlock 14 extra skill points for a total of 83. Check out our Season Ran
 ## 8. Data freshness
 - **guide**: <https://maxroll.gg/d4/build-guides/dread-claws-warlock-leveling-guide>
 - **planner**: <https://maxroll.gg/d4/planner/sf1n6g0v>
-- **Fetched:** 2026-05-03 01:24 UTC
+- **Fetched:** 2026-05-03 01:27 UTC
 - **Planner ID:** `sf1n6g0v`

@@ -1,138 +1,54 @@
-# Maps SkillKit gbid codenames → d4data Power file → per-Upgrade Mod names.
+# Maps SkillKit gbid codenames → d4data Power file.
 #
-# d4data uses three different naming systems for the same skill:
-#   1. Maxroll user-facing name      ("Dread Claws", "Sigil of Subversion")
-#   2. SkillKit codename              (Warlock_Core_AbyssDemon, Warlock_Sigil_Abyss)
-#   3. Power file codename            (ShadowShred, SigilOfShadows)
+# Per-Upgrade modifier names are auto-extracted at runtime from the Power
+# file's arMods list (sorted by dwModId ascending → Upgrade2/3/4/A/B/C).
+# Upgrade1 is always treated as "Enhanced <skill>" (flat buff, no Mod entry).
 #
-# This file maps (2) → (3) → individual Mod display names per Upgrade suffix.
+# Add a new entry per class+skill: just `display_name` + `power_file`. The
+# tool reads `Power_<power_file>.pow.json` for arMods and matches against
+# `Power_<power_file>.stl.json` for Mod{N}_Name display strings.
 #
-# Format:
-#   <skillkit_codename>:
-#     display_name: "<user-facing name>"
-#     power_file: "<Power_<codename>>"
-#     upgrades:
-#       Upgrade1: "Enhanced <skill>"   # flat numerical buff, no Mod entry
-#       Upgrade2: "<Mod name>"
-#       Upgrade3: "<Mod name>"
-#       Upgrade4: "<Mod name>"
-#       UpgradeA: "<Mod name>"
-#       UpgradeB: "<Mod name>"
-#       UpgradeC: "<Mod name>"
-#
-# When this file is missing an entry, the report falls back to the codename
-# humanizer ("Upgrade 1" / "Upgrade 2" / etc.).
+# Use the optional `upgrades:` block to override the auto-extracted name
+# for a specific suffix when the canonical order doesn't match Maxroll's UI.
 
-# Warlock skills present in the Dread Claws + adjacent leveling builds
-# (Lord of Hatred, 2026-04-28+).
+# Warlock — Lord of Hatred (2026-04-28+)
 
 Warlock_Core_AbyssDemon:
   display_name: "Dread Claws"
   power_file: Power_Warlock_ShadowShred
-  upgrades:
-    Upgrade1: "Enhanced Dread Claws"
-    Upgrade2: "Cascading Dread"      # Mod6
-    Upgrade3: "Enveloping Terror"    # Mod7
-    Upgrade4: "Ravenous Jaws"        # Mod8
-    UpgradeA: "Damage"               # Mod12
-    UpgradeB: "Cost Reduction"       # Mod13
-    UpgradeC: "Ambush"               # Mod14
 
 Warlock_Basic_Demon2:
   display_name: "Hellion Sting"
   power_file: Power_Warlock_TailWhip
-  upgrades:
-    Upgrade1: "Enhanced Hellion Sting"
-    Upgrade2: "Multi-Strike"         # Mod6
-    Upgrade3: "Tail Spikes"          # Mod7
-    Upgrade4: "Demonic Swipe"        # Mod8
-    UpgradeA: "Damage"               # Mod9
-    UpgradeB: "Wrath"                # Mod10
-    UpgradeC: "Eviscerate"           # Mod11
 
 Warlock_Basic_Demon1:
   display_name: "Command Fallen"
   power_file: Power_Warlock_Summon_Lunatic
-  upgrades:
-    Upgrade1: "Enhanced Command Fallen"
-    Upgrade2: "Mega Lunatic"         # Mod0
-    Upgrade3: "Meat Shields"         # Mod1
-    Upgrade4: "Fallen Rush"          # Mod3
-    UpgradeA: "Damage Per Demon"     # Mod5
-    UpgradeB: "Wrath"                # Mod7
-    UpgradeC: "Lifetime Damage"      # Mod9
 
 Warlock_Defensive_AbyssDemon1:
-  display_name: "Sigil of Subversion (Defensive node)"
+  display_name: "Sigil of Subversion (Defensive)"
   power_file: Power_Warlock_SigilOfShadows
-  upgrades:
-    Upgrade1: "Enhanced Sigil of Subversion"
-    Upgrade2: "Infiltration Trails"  # Mod4
-    Upgrade3: "Seekers"              # Mod5
-    Upgrade4: "Sigil of Lava"        # Mod6
-    UpgradeA: "Movement Speed"       # Mod7
-    UpgradeB: "Blood Ritual"         # Mod8
-    UpgradeC: "Slow"                 # Mod9
 
 Warlock_Defensive_AbyssDemon2:
-  display_name: "Sigil of Subversion (Defensive variant)"
+  display_name: "Sigil of Subversion (Defensive)"
   power_file: Power_Warlock_SigilOfShadows
-  upgrades:
-    Upgrade1: "Enhanced Sigil of Subversion"
-    Upgrade2: "Infiltration Trails"
-    Upgrade3: "Seekers"
-    Upgrade4: "Sigil of Lava"
-    UpgradeA: "Movement Speed"
-    UpgradeB: "Blood Ritual"
-    UpgradeC: "Cast Range"
 
 Warlock_Sigil_Abyss:
   display_name: "Sigil of Subversion"
   power_file: Power_Warlock_SigilOfShadows
-  upgrades:
-    Upgrade1: "Enhanced Sigil of Subversion"
-    Upgrade2: "Infiltration Trails"  # Mod4
-    Upgrade3: "Seekers"              # Mod5
-    Upgrade4: "Sigil of Lava"        # Mod6
-    UpgradeA: "Movement Speed"       # Mod7
-    UpgradeB: "Blood Ritual"         # Mod8
-    UpgradeC: "Slow"                 # Mod9
-
-Warlock_Archfiend_Demon:
-  display_name: "Metamorphosis"
-  power_file: Power_Warlock_ArchDemon
-  upgrades:
-    Upgrade1: "Enhanced Metamorphosis"
-    Upgrade2: "Sin Demon"            # Mod6
-    Upgrade3: "Destruction Demon"    # Mod7
-    Upgrade4: "Terror Demon"         # Mod8
-    UpgradeA: "Damage Scaling"       # Mod9
-    UpgradeB: "Maximum Life"         # Mod10
-    UpgradeC: "Dominance"            # Mod11
-
-Warlock_Special_Rampage:
-  display_name: "Rampage"
-  power_file: Power_Warlock_DemonicSlash
-  upgrades:
-    Upgrade1: "Enhanced Rampage"
-    Upgrade2: "Demonic Smash"        # Mod0
-    Upgrade3: "Abyssal Titan"        # Mod1
-    Upgrade4: "Shockwave"            # Mod2
-    UpgradeA: "Killstreak Damage"    # Mod6
-    UpgradeB: "Lesser Demon Wrath"   # Mod7
-    UpgradeC: "Demon Masher"         # Mod9
-
-Warlock_Special_NetherStep:
-  display_name: "Nether Step"
-  power_file: Power_Warlock_NetherStep_Override
-  upgrades:
-    Upgrade1: "Enhanced Nether Step"
 
 Warlock_Special_SigilofChaos:
   display_name: "Sigil of Subversion"
   power_file: Power_Warlock_SigilOfShadows
-  upgrades:
-    Upgrade1: "Enhanced Sigil of Subversion"
-    Upgrade2: "Infiltration Trails"
-    Upgrade3: "Seekers"
-    Upgrade4: "Sigil of Lava"
+
+Warlock_Archfiend_Demon:
+  display_name: "Metamorphosis"
+  power_file: Power_Warlock_ArchDemon
+
+Warlock_Special_Rampage:
+  display_name: "Rampage"
+  power_file: Power_Warlock_DemonicSlash
+
+Warlock_Special_NetherStep:
+  display_name: "Nether Step"
+  power_file: Power_Warlock_NetherStep_Override

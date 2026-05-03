@@ -135,6 +135,73 @@ class D4DataLookup:
         self._skill_kit_cache[cache_key] = node_map
         return node_map
 
+    @property
+    def power_dir(self) -> Path:
+        return self.d4data_root / "json" / "base" / "meta" / "Power"
+
+    def power_mod_names_in_id_order(self, power_file: str) -> list[str]:
+        """Return Mod display names for a Power file, sorted by dwModId.
+
+        Reads `Power/<power_file>.pow.json` for the `arMods` list (each entry
+        carries a `dwModId`) and `StringList/<power_file>.stl.json` for the
+        `Mod{N}_Name` text. Returns the Mod names in ascending Mod-id order
+        — which matches Maxroll's UI ordering for the Upgrade2/3/4/A/B/C
+        suffixes.
+
+        Returns [] when either file is missing or no Mods are present.
+        """
+        cache_key = f"power_mods:{power_file}"
+        cached = self._memo.get(cache_key)
+        if cached is not None:
+            # Stored as a sentinel string when previously resolved.
+            try:
+                return json.loads(cached)
+            except (ValueError, TypeError):
+                pass
+
+        if not self.is_available():
+            self._memo[cache_key] = "[]"
+            return []
+
+        # The .pow.json files don't carry the "Power_" prefix in d4data; the
+        # StringList .stl.json files do. Normalize both ways.
+        pow_basename = power_file[len("Power_"):] if power_file.startswith("Power_") else power_file
+        stl_basename = power_file if power_file.startswith("Power_") else f"Power_{power_file}"
+        pow_path = self.power_dir / f"{pow_basename}.pow.json"
+        stl_path = self.stringlist_dir / f"{stl_basename}.stl.json"
+        if not pow_path.exists() or not stl_path.exists():
+            self._memo[cache_key] = "[]"
+            return []
+
+        try:
+            pow_data = json.loads(pow_path.read_text())
+            stl_data = json.loads(stl_path.read_text())
+        except (OSError, json.JSONDecodeError):
+            self._memo[cache_key] = "[]"
+            return []
+
+        mod_id_order: list[int] = []
+        for m in pow_data.get("arMods", []) or []:
+            mid = m.get("dwModId")
+            if isinstance(mid, int):
+                mod_id_order.append(mid)
+        # Build label -> name map from StringList.
+        labels: dict[str, str] = {}
+        for e in stl_data.get("arStrings", []) or []:
+            lbl = e.get("szLabel", "")
+            txt = e.get("szText", "")
+            if lbl and txt:
+                labels[lbl] = txt
+        # Sort Mods by id ascending and look up Mod{N}_Name strings.
+        mod_id_order.sort()
+        names: list[str] = []
+        for mid in mod_id_order:
+            name = labels.get(f"Mod{mid}_Name")
+            if name:
+                names.append(name)
+        self._memo[cache_key] = json.dumps(names)
+        return names
+
     def _load_paragon_board_cells(self, board_id: str) -> list[str]:
         """Return a 441-entry list mapping cell-index -> ParagonNode codename.
 
@@ -215,9 +282,9 @@ class D4DataLookup:
         gbid = node_map.get(nid)
         if not gbid:
             return ""
-        # Try the precise mapping first.
+        # Try the precise mapping first (auto-extracts Mod names via this lookup).
         from ..skill_modifier_mapping import resolve_modifier_name
-        skill_display, modifier = resolve_modifier_name(gbid)
+        skill_display, modifier = resolve_modifier_name(gbid, lookup=self)
         if skill_display:
             if modifier:
                 # If the modifier text already contains the skill name (e.g.
