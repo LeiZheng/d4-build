@@ -12,10 +12,12 @@
 # for a specific suffix when the canonical order doesn't match Maxroll's UI.
 
 # Warlock — Lord of Hatred (2026-04-28+)
+# Coverage notes: 24 base SkillKit gbids exist. Mappings below cover the
+# skills present in the 5 Maxroll leveling builds (Dread Claws, Blazing
+# Scream, Minion, Hell Fracture, Eviscerate). Some are inferred by theme
+# matching where direct verification wasn't possible.
 
-Warlock_Core_AbyssDemon:
-  display_name: "Dread Claws"
-  power_file: Power_Warlock_ShadowShred
+# === Basic cluster ===
 
 Warlock_Basic_Demon2:
   display_name: "Hellion Sting"
@@ -25,6 +27,38 @@ Warlock_Basic_Demon1:
   display_name: "Command Fallen"
   power_file: Power_Warlock_Summon_Lunatic
 
+Warlock_Basic_Abyss:
+  display_name: "Doom"
+  power_file: Power_Warlock_HexCast
+
+Warlock_Basic_Hellfire:
+  display_name: "Brimstone"
+  power_file: Power_Warlock_Brimstone
+
+# === Core cluster ===
+
+Warlock_Core_AbyssDemon:
+  display_name: "Dread Claws"
+  power_file: Power_Warlock_ShadowShred
+
+Warlock_Core_Abyss:
+  display_name: "Umbral Chains"
+  power_file: Power_Warlock_ChainLash
+
+Warlock_Core_Demon:
+  display_name: "Bombardment"
+  power_file: Power_Warlock_DemonicBombard
+
+Warlock_Core_Hellfire:
+  display_name: "Blazing Scream"
+  power_file: Power_Warlock_BurningSkull
+
+Warlock_Core_HellfireDemon:
+  display_name: "Hell Fracture"
+  power_file: Power_Warlock_Fissure
+
+# === Defensive cluster ===
+
 Warlock_Defensive_AbyssDemon1:
   display_name: "Sigil of Subversion (Defensive)"
   power_file: Power_Warlock_SigilOfShadows
@@ -33,22 +67,60 @@ Warlock_Defensive_AbyssDemon2:
   display_name: "Sigil of Subversion (Defensive)"
   power_file: Power_Warlock_SigilOfShadows
 
+Warlock_Defensive_Demon:
+  display_name: "Dark Prison"
+  power_file: Power_Warlock_ChainTotem
+
+Warlock_Defensive_HellfireDemon:
+  display_name: "Wall of Agony"
+  power_file: Power_Warlock_Demon_Wall
+
+# === Sigil cluster ===
+
 Warlock_Sigil_Abyss:
   display_name: "Sigil of Subversion"
   power_file: Power_Warlock_SigilOfShadows
 
-Warlock_Special_SigilofChaos:
-  display_name: "Sigil of Subversion"
-  power_file: Power_Warlock_SigilOfShadows
+Warlock_Sigil_Demon:
+  display_name: "Sigil of Summons"
+  power_file: Power_Warlock_SigilOfSummons
+
+Warlock_Sigil_Hellfire:
+  display_name: "Sigil of Chaos"
+  power_file: Power_Warlock_SigilOfFlames
+
+# === Archfiend cluster ===
 
 Warlock_Archfiend_Demon:
   display_name: "Metamorphosis"
   power_file: Power_Warlock_ArchDemon
 
-Warlock_Special_Rampage:
+Warlock_Archfiend_AbyssDemon:
+  display_name: "Demonform"
+  power_file: Power_Warlock_Demonform
+
+Warlock_Archfiend_HellfireDemon1:
+  display_name: "Summon Ae'grom"
+  power_file: Power_Warlock_Summon_Legion_Demon
+
+Warlock_Archfiend_HellfireDemon2:
+  display_name: "Tyrant's Grasp"
+  power_file: Power_Warlock_DemonicGrasp
+
+# === Ultimate cluster ===
+
+Warlock_Ultimate_Demon1:
+  display_name: "Fiend of Abaddon"
+  power_file: Power_Warlock_UltimateDemon
+
+Warlock_Ultimate_Demon2:
+  display_name: "Apocalypse"
+  power_file: Power_Warlock_Doombringer
+
+Warlock_Ultimate_Abyss:
   display_name: "Rampage"
   power_file: Power_Warlock_DemonicSlash
 
-Warlock_Special_NetherStep:
-  display_name: "Nether Step"
-  power_file: Power_Warlock_NetherStep_Override
+Warlock_Ultimate_Hellfire:
+  display_name: "Terror Swarm"
+  power_file: Power_Warlock_HellStorm

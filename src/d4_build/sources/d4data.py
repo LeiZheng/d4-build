@@ -272,7 +272,9 @@ class D4DataLookup:
                -> "Dread Claws — Cascading Dread"
             2. Generic codename humanizer
                -> "Abyss Demon — Upgrade 2 (Core)"
-            3. "" when the SkillKit doesn't carry this node
+            3. ID-offset fallback for stale Maxroll planners that use
+               +8400-shifted IDs (e.g. Eviscerate Warlock).
+            4. "" when the SkillKit doesn't carry this node
         """
         try:
             nid = int(node_id)
@@ -280,6 +282,11 @@ class D4DataLookup:
             return ""
         node_map = self._load_skill_kit_node_map(class_slug)
         gbid = node_map.get(nid)
+        # Fallback: some Maxroll planners use ID+8400. Try that mapping
+        # before giving up.
+        if not gbid:
+            shifted = nid - 8400
+            gbid = node_map.get(shifted)
         if not gbid:
             return ""
         # Try the precise mapping first (auto-extracts Mod names via this lookup).
