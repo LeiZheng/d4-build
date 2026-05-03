@@ -56,7 +56,9 @@ class EvaluationWeights(BaseModel):
     no_defensive_penalty: float = 30.0
 
     # Diversity: penalize when a single node has more than this many ranks.
-    excess_rank_threshold: int = 5
+    # Maxroll legitimately ranks Core/Ultimate skills to 14-15 during leveling,
+    # so the threshold has to sit above that to avoid penalizing valid plans.
+    excess_rank_threshold: int = 14
     excess_rank_penalty: float = 5.0
 
     # Synergy bonus when a node's cluster matches the primary archetype tag.

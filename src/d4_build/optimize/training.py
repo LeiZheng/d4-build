@@ -213,6 +213,7 @@ def train(
         "rank_value_core":      [0.5, 1.0, 1.5, 2.0],
         "spec_value":           [0.2, 0.4, 0.6],
         "no_core_penalty":      [50.0, 100.0, 200.0],
+        "excess_rank_threshold":[12, 14, 16],
         "excess_rank_penalty":  [2.0, 5.0, 10.0],
     }
     base = EvaluationWeights().model_dump()

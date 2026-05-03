@@ -313,9 +313,14 @@ class D4DataLookup:
         node_map = self._load_skill_kit_node_map(class_slug)
         # Apply the caller-detected offset first.
         gbid = node_map.get(nid - id_offset)
-        # Fallback: try the historical +8400 if the caller didn't pass one.
-        if not gbid and id_offset == 0:
-            gbid = node_map.get(nid - 8400)
+        # Per-ID fallback: try every candidate offset if the primary missed.
+        if not gbid:
+            for off in (0, 8200, 8300, 8390, 8400, 8500, 8800, 9000):
+                if off == id_offset:
+                    continue
+                gbid = node_map.get(nid - off)
+                if gbid:
+                    break
         if not gbid:
             return ""
         # Try the precise mapping first (auto-extracts Mod names via this lookup).
