@@ -200,12 +200,12 @@ class D4DataLookup:
     def skill_node_label_for(self, class_slug: str, node_id: int | str) -> str:
         """Resolve a planner node ID to a humanized skill name.
 
-        Returns "" if d4data isn't available or the class/node isn't found.
-        Output examples:
-            - 761 -> 'Abyss Demon (Defensive)'
-            - 848 -> 'Abyss Demon (Core)'
-            - 944 -> 'Demon 2 (Basic)'
-            - 838 -> 'Abyss Sigil'
+        Lookup chain:
+            1. Manual modifier mapping in data/skill_modifier_mapping.yaml
+               -> "Dread Claws — Cascading Dread"
+            2. Generic codename humanizer
+               -> "Abyss Demon — Upgrade 2 (Core)"
+            3. "" when the SkillKit doesn't carry this node
         """
         try:
             nid = int(node_id)
@@ -215,6 +215,18 @@ class D4DataLookup:
         gbid = node_map.get(nid)
         if not gbid:
             return ""
+        # Try the precise mapping first.
+        from ..skill_modifier_mapping import resolve_modifier_name
+        skill_display, modifier = resolve_modifier_name(gbid)
+        if skill_display:
+            if modifier:
+                # If the modifier text already contains the skill name (e.g.
+                # "Enhanced Dread Claws"), don't double it.
+                if skill_display in modifier:
+                    return modifier
+                return f"{skill_display} — {modifier}"
+            return skill_display
+        # Fallback to generic humanizer.
         return _humanize_skill_gbid(gbid)
 
     def name_for(self, item_id: str) -> str | None:

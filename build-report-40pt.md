@@ -1,6 +1,6 @@
 # Dread Claws Warlock — Leveling
 **Season:** Season 13 - Season of Reckoning
-**Tier:** S &nbsp;|&nbsp; **Build ID:** `sf1n6g0v` &nbsp;|&nbsp; **Fetched:** 2026-05-02 22:34 UTC
+**Tier:** S &nbsp;|&nbsp; **Build ID:** `sf1n6g0v` &nbsp;|&nbsp; **Fetched:** 2026-05-03 01:24 UTC
 
 > _Source of truth: Maxroll. The ranked damage breakdown below is build-specific._
 
@@ -60,46 +60,46 @@ Spend each skill point in this exact order. Each row is **one click** in the pla
 
 | Lvl | Point # | Click on | Milestone |
 |----:|--------:|----------|-----------|
-| 1 | 1 | Abyss Demon1 (Defensive) | _lvl 4 Core_ |
-| 2 | 2 | Abyss Demon (Core) | _lvl 4 Core_ |
-| 3 | 3 | Demon2 (Basic) | _lvl 4 Core_ |
-| 5 | 4 | Abyss Demon1 — Upgrade 1 (Defensive) | _lvl 9 Eviscerate_ |
-| 6 | 5 | Abyss Demon — Upgrade 1 (Core) | _lvl 9 Eviscerate_ |
-| 7 | 6 | Demon (Archfiend) | _lvl 9 Eviscerate_ |
-| 8 | 7 | Demon2 — Upgrade 3 (Basic) | _lvl 9 Eviscerate_ |
-| 9 | 8 | Demon2 — Upgrade 1 (Basic) | _lvl 9 Eviscerate_ |
-| 10 | 9 | Demon — Upgrade 1 (Archfiend) | _lvl 13 Sigil_ |
-| 11 | 10 | Abyss Demon1 — Upgrade 4 (Defensive) | _lvl 13 Sigil_ |
-| 12 | 11 | Abyss Demon — Upgrade 3 (Core) | _lvl 13 Sigil_ |
-| 13 | 12 | Abyss (Sigil) | _lvl 13 Sigil_ |
-| 14 | 13 | Abyss Demon — Upgrade B (Core) | _lvl 15 Main Variants_ |
-| 15 | 14 | Demon2 — Upgrade B (Basic) | _lvl 15 Main Variants_ |
-| 16 | 15 | Abyss — Upgrade 1 (Sigil) | _lvl 23 Infiltration Trails_ |
-| 17 | 16 | Abyss — Upgrade 3 (Sigil) | _lvl 23 Infiltration Trails_ |
-| 18 | 17 | Demon — Upgrade 3 (Archfiend) | _lvl 23 Infiltration Trails_ |
-| 19 | 18 | Demon — Upgrade B (Archfiend) | _lvl 23 Infiltration Trails_ |
-| 20 | 19 | Abyss — Upgrade A (Sigil) | _lvl 23 Infiltration Trails_ |
-| 21 | 20 | Abyss Demon (Core) → rank 2 | _lvl 23 Infiltration Trails_ |
-| 22 | 21 | Abyss Demon (Core) → rank 3 | _lvl 23 Infiltration Trails_ |
-| 23 | 22 | Abyss Demon (Core) → rank 4 | _lvl 23 Infiltration Trails_ |
-| 24 | 23 | Abyss Demon1 — Upgrade C (Defensive) | _lvl 34 Recall Shadows_ |
-| 25 | 24 | Abyss Demon (Core) → rank 5 | _lvl 34 Recall Shadows_ |
-| 26 | 25 | Abyss Demon (Core) → rank 6 | _lvl 34 Recall Shadows_ |
-| 27 | 26 | Abyss Demon (Core) → rank 7 | _lvl 34 Recall Shadows_ |
-| 28 | 27 | Abyss Demon (Core) → rank 8 | _lvl 34 Recall Shadows_ |
-| 29 | 28 | Abyss Demon (Core) → rank 9 | _lvl 34 Recall Shadows_ |
-| 30 | 29 | Abyss Demon (Core) → rank 10 | _lvl 34 Recall Shadows_ |
-| 31 | 30 | Abyss Demon (Core) → rank 11 | _lvl 34 Recall Shadows_ |
-| 32 | 31 | Abyss Demon (Core) → rank 12 | _lvl 34 Recall Shadows_ |
-| 33 | 32 | Abyss Demon (Core) → rank 13 | _lvl 34 Recall Shadows_ |
-| 34 | 33 | Abyss Demon (Core) → rank 14 | _lvl 34 Recall Shadows_ |
-| 35 | 34 | Abyss Demon2 — Upgrade 4 (Defensive) | _lvl 34 Respec Fallen + Prison_ |
-| 35 | 35 | Abyss Demon2 — Upgrade 1 (Defensive) | _lvl 34 Respec Fallen + Prison_ |
-| 35 | 36 | Abyss Demon2 — Upgrade C (Defensive) | _lvl 34 Respec Fallen + Prison_ |
-| 35 | 37 | Abyss Demon2 (Defensive) | _lvl 34 Respec Fallen + Prison_ |
-| 35 | 38 | Demon1 — Upgrade 2 (Basic) | _lvl 34 Respec Fallen + Prison_ |
-| 35 | 39 | Demon1 — Upgrade 4 (Basic) | _lvl 34 Respec Fallen + Prison_ |
-| 35 | 40 | Demon1 — Upgrade C (Basic) | _lvl 34 Respec Fallen + Prison_ |
+| 1 | 1 | Sigil of Subversion (Defensive node) | _lvl 4 Core_ |
+| 2 | 2 | Dread Claws | _lvl 4 Core_ |
+| 3 | 3 | Hellion Sting | _lvl 4 Core_ |
+| 5 | 4 | Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion | _lvl 9 Eviscerate_ |
+| 6 | 5 | Enhanced Dread Claws | _lvl 9 Eviscerate_ |
+| 7 | 6 | Metamorphosis | _lvl 9 Eviscerate_ |
+| 8 | 7 | Hellion Sting — Tail Spikes | _lvl 9 Eviscerate_ |
+| 9 | 8 | Enhanced Hellion Sting | _lvl 9 Eviscerate_ |
+| 10 | 9 | Enhanced Metamorphosis | _lvl 13 Sigil_ |
+| 11 | 10 | Sigil of Subversion (Defensive node) — Sigil of Lava | _lvl 13 Sigil_ |
+| 12 | 11 | Dread Claws — Enveloping Terror | _lvl 13 Sigil_ |
+| 13 | 12 | Sigil of Subversion | _lvl 13 Sigil_ |
+| 14 | 13 | Dread Claws — Cost Reduction | _lvl 15 Main Variants_ |
+| 15 | 14 | Hellion Sting — Wrath | _lvl 15 Main Variants_ |
+| 16 | 15 | Enhanced Sigil of Subversion | _lvl 23 Infiltration Trails_ |
+| 17 | 16 | Sigil of Subversion — Seekers | _lvl 23 Infiltration Trails_ |
+| 18 | 17 | Metamorphosis — Destruction Demon | _lvl 23 Infiltration Trails_ |
+| 19 | 18 | Metamorphosis — Maximum Life | _lvl 23 Infiltration Trails_ |
+| 20 | 19 | Sigil of Subversion — Movement Speed | _lvl 23 Infiltration Trails_ |
+| 21 | 20 | Dread Claws → rank 2 | _lvl 23 Infiltration Trails_ |
+| 22 | 21 | Dread Claws → rank 3 | _lvl 23 Infiltration Trails_ |
+| 23 | 22 | Dread Claws → rank 4 | _lvl 23 Infiltration Trails_ |
+| 24 | 23 | Sigil of Subversion (Defensive node) — Slow | _lvl 34 Recall Shadows_ |
+| 25 | 24 | Dread Claws → rank 5 | _lvl 34 Recall Shadows_ |
+| 26 | 25 | Dread Claws → rank 6 | _lvl 34 Recall Shadows_ |
+| 27 | 26 | Dread Claws → rank 7 | _lvl 34 Recall Shadows_ |
+| 28 | 27 | Dread Claws → rank 8 | _lvl 34 Recall Shadows_ |
+| 29 | 28 | Dread Claws → rank 9 | _lvl 34 Recall Shadows_ |
+| 30 | 29 | Dread Claws → rank 10 | _lvl 34 Recall Shadows_ |
+| 31 | 30 | Dread Claws → rank 11 | _lvl 34 Recall Shadows_ |
+| 32 | 31 | Dread Claws → rank 12 | _lvl 34 Recall Shadows_ |
+| 33 | 32 | Dread Claws → rank 13 | _lvl 34 Recall Shadows_ |
+| 34 | 33 | Dread Claws → rank 14 | _lvl 34 Recall Shadows_ |
+| 35 | 34 | Sigil of Subversion (Defensive variant) — Sigil of Lava | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 35 | Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 36 | Sigil of Subversion (Defensive variant) — Cast Range | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 37 | Sigil of Subversion (Defensive variant) | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 38 | Command Fallen — Mega Lunatic | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 39 | Command Fallen — Fallen Rush | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 40 | Command Fallen — Lifetime Damage | _lvl 34 Respec Fallen + Prison_ |
 
 
 If a row shows just `node \`nnnn\`` without a name, the resolver couldn't find the SkillKit entry — open the planner URL in section 8's footer and verify visually.
@@ -112,238 +112,238 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 **1. lvl 4 Core** (3 nodes total)
 
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
-- Demon2 (Basic) &nbsp; <sub>`944`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
+- Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **2. lvl 9 Eviscerate** (8 nodes total)
 
-- Abyss Demon1 — Upgrade 1 (Defensive) &nbsp; <sub>`667`</sub>
-- Abyss Demon — Upgrade 1 (Core) &nbsp; <sub>`693`</sub>
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Demon (Archfiend) &nbsp; <sub>`834`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
-- Demon2 — Upgrade 3 (Basic) &nbsp; <sub>`901`</sub>
-- Demon2 — Upgrade 1 (Basic) &nbsp; <sub>`904`</sub>
-- Demon2 (Basic) &nbsp; <sub>`944`</sub>
+- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Metamorphosis &nbsp; <sub>`834`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
+- Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
+- Enhanced Hellion Sting &nbsp; <sub>`904`</sub>
+- Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **3. lvl 13 Sigil** (12 nodes total)
 
-- Demon — Upgrade 1 (Archfiend) &nbsp; <sub>`625`</sub>
-- Abyss Demon1 — Upgrade 1 (Defensive) &nbsp; <sub>`667`</sub>
-- Abyss Demon1 — Upgrade 4 (Defensive) &nbsp; <sub>`669`</sub>
-- Abyss Demon — Upgrade 3 (Core) &nbsp; <sub>`691`</sub>
-- Abyss Demon — Upgrade 1 (Core) &nbsp; <sub>`693`</sub>
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Demon (Archfiend) &nbsp; <sub>`834`</sub>
-- Abyss (Sigil) &nbsp; <sub>`838`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
-- Demon2 — Upgrade 3 (Basic) &nbsp; <sub>`901`</sub>
-- Demon2 — Upgrade 1 (Basic) &nbsp; <sub>`904`</sub>
-- Demon2 (Basic) &nbsp; <sub>`944`</sub>
+- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
+- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Metamorphosis &nbsp; <sub>`834`</sub>
+- Sigil of Subversion &nbsp; <sub>`838`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
+- Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
+- Enhanced Hellion Sting &nbsp; <sub>`904`</sub>
+- Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **4. lvl 15 Main Variants** (14 nodes total)
 
-- Demon — Upgrade 1 (Archfiend) &nbsp; <sub>`625`</sub>
-- Abyss Demon1 — Upgrade 1 (Defensive) &nbsp; <sub>`667`</sub>
-- Abyss Demon1 — Upgrade 4 (Defensive) &nbsp; <sub>`669`</sub>
-- Abyss Demon — Upgrade 3 (Core) &nbsp; <sub>`691`</sub>
-- Abyss Demon — Upgrade 1 (Core) &nbsp; <sub>`693`</sub>
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Abyss Demon — Upgrade B (Core) &nbsp; <sub>`827`</sub>
-- Demon (Archfiend) &nbsp; <sub>`834`</sub>
-- Abyss (Sigil) &nbsp; <sub>`838`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
-- Demon2 — Upgrade 3 (Basic) &nbsp; <sub>`901`</sub>
-- Demon2 — Upgrade 1 (Basic) &nbsp; <sub>`904`</sub>
-- Demon2 — Upgrade B (Basic) &nbsp; <sub>`933`</sub>
-- Demon2 (Basic) &nbsp; <sub>`944`</sub>
+- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
+- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
+- Metamorphosis &nbsp; <sub>`834`</sub>
+- Sigil of Subversion &nbsp; <sub>`838`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
+- Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
+- Enhanced Hellion Sting &nbsp; <sub>`904`</sub>
+- Hellion Sting — Wrath &nbsp; <sub>`933`</sub>
+- Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **5. lvl 23 Infiltration Trails** (19 nodes total)
 
-- Abyss — Upgrade 1 (Sigil) &nbsp; <sub>`607`</sub>
-- Abyss — Upgrade 3 (Sigil) &nbsp; <sub>`610`</sub>
-- Demon — Upgrade 1 (Archfiend) &nbsp; <sub>`625`</sub>
-- Demon — Upgrade 3 (Archfiend) &nbsp; <sub>`628`</sub>
-- Abyss Demon1 — Upgrade 1 (Defensive) &nbsp; <sub>`667`</sub>
-- Abyss Demon1 — Upgrade 4 (Defensive) &nbsp; <sub>`669`</sub>
-- Abyss Demon — Upgrade 3 (Core) &nbsp; <sub>`691`</sub>
-- Abyss Demon — Upgrade 1 (Core) &nbsp; <sub>`693`</sub>
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Demon — Upgrade B (Archfiend) &nbsp; <sub>`825`</sub>
-- Abyss Demon — Upgrade B (Core) &nbsp; <sub>`827`</sub>
-- Abyss — Upgrade A (Sigil) &nbsp; <sub>`829`</sub>
-- Demon (Archfiend) &nbsp; <sub>`834`</sub>
-- Abyss (Sigil) &nbsp; <sub>`838`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
-- Demon2 — Upgrade 3 (Basic) &nbsp; <sub>`901`</sub>
-- Demon2 — Upgrade 1 (Basic) &nbsp; <sub>`904`</sub>
-- Demon2 — Upgrade B (Basic) &nbsp; <sub>`933`</sub>
-- Demon2 (Basic) &nbsp; <sub>`944`</sub>
+- Enhanced Sigil of Subversion &nbsp; <sub>`607`</sub>
+- Sigil of Subversion — Seekers &nbsp; <sub>`610`</sub>
+- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
+- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
+- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
+- Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
+- Sigil of Subversion — Movement Speed &nbsp; <sub>`829`</sub>
+- Metamorphosis &nbsp; <sub>`834`</sub>
+- Sigil of Subversion &nbsp; <sub>`838`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
+- Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
+- Enhanced Hellion Sting &nbsp; <sub>`904`</sub>
+- Hellion Sting — Wrath &nbsp; <sub>`933`</sub>
+- Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **6. lvl 34 Recall Shadows** (20 nodes total)
 
-- Abyss — Upgrade 1 (Sigil) &nbsp; <sub>`607`</sub>
-- Abyss — Upgrade 3 (Sigil) &nbsp; <sub>`610`</sub>
-- Demon — Upgrade 1 (Archfiend) &nbsp; <sub>`625`</sub>
-- Demon — Upgrade 3 (Archfiend) &nbsp; <sub>`628`</sub>
-- Abyss Demon1 — Upgrade 1 (Defensive) &nbsp; <sub>`667`</sub>
-- Abyss Demon1 — Upgrade 4 (Defensive) &nbsp; <sub>`669`</sub>
-- Abyss Demon — Upgrade 3 (Core) &nbsp; <sub>`691`</sub>
-- Abyss Demon — Upgrade 1 (Core) &nbsp; <sub>`693`</sub>
-- Abyss Demon1 — Upgrade C (Defensive) &nbsp; <sub>`759`</sub>
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Demon — Upgrade B (Archfiend) &nbsp; <sub>`825`</sub>
-- Abyss Demon — Upgrade B (Core) &nbsp; <sub>`827`</sub>
-- Abyss — Upgrade A (Sigil) &nbsp; <sub>`829`</sub>
-- Demon (Archfiend) &nbsp; <sub>`834`</sub>
-- Abyss (Sigil) &nbsp; <sub>`838`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
-- Demon2 — Upgrade 3 (Basic) &nbsp; <sub>`901`</sub>
-- Demon2 — Upgrade 1 (Basic) &nbsp; <sub>`904`</sub>
-- Demon2 — Upgrade B (Basic) &nbsp; <sub>`933`</sub>
-- Demon2 (Basic) &nbsp; <sub>`944`</sub>
+- Enhanced Sigil of Subversion &nbsp; <sub>`607`</sub>
+- Sigil of Subversion — Seekers &nbsp; <sub>`610`</sub>
+- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
+- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
+- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
+- Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
+- Sigil of Subversion — Movement Speed &nbsp; <sub>`829`</sub>
+- Metamorphosis &nbsp; <sub>`834`</sub>
+- Sigil of Subversion &nbsp; <sub>`838`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
+- Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
+- Enhanced Hellion Sting &nbsp; <sub>`904`</sub>
+- Hellion Sting — Wrath &nbsp; <sub>`933`</sub>
+- Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **7. lvl 34 Respec Fallen + Prison** (20 nodes total)
 
-- Demon — Upgrade 1 (Archfiend) &nbsp; <sub>`625`</sub>
-- Demon — Upgrade 3 (Archfiend) &nbsp; <sub>`628`</sub>
-- Abyss Demon2 — Upgrade 4 (Defensive) &nbsp; <sub>`650`</sub>
-- Abyss Demon2 — Upgrade 1 (Defensive) &nbsp; <sub>`652`</sub>
-- Abyss Demon1 — Upgrade 1 (Defensive) &nbsp; <sub>`667`</sub>
-- Abyss Demon1 — Upgrade 4 (Defensive) &nbsp; <sub>`669`</sub>
-- Abyss Demon — Upgrade 3 (Core) &nbsp; <sub>`691`</sub>
-- Abyss Demon — Upgrade 1 (Core) &nbsp; <sub>`693`</sub>
-- Abyss Demon1 — Upgrade C (Defensive) &nbsp; <sub>`759`</sub>
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Abyss Demon2 — Upgrade C (Defensive) &nbsp; <sub>`814`</sub>
-- Abyss Demon2 (Defensive) &nbsp; <sub>`821`</sub>
-- Demon — Upgrade B (Archfiend) &nbsp; <sub>`825`</sub>
-- Abyss Demon — Upgrade B (Core) &nbsp; <sub>`827`</sub>
-- Demon (Archfiend) &nbsp; <sub>`834`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
-- Demon1 — Upgrade 2 (Basic) &nbsp; <sub>`908`</sub>
-- Demon1 — Upgrade 4 (Basic) &nbsp; <sub>`909`</sub>
-- Demon1 — Upgrade C (Basic) &nbsp; <sub>`939`</sub>
-- Demon1 (Basic) &nbsp; <sub>`942`</sub>
+- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
+- Sigil of Subversion (Defensive variant) — Sigil of Lava &nbsp; <sub>`650`</sub>
+- Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion &nbsp; <sub>`652`</sub>
+- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
+- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive variant) — Cast Range &nbsp; <sub>`814`</sub>
+- Sigil of Subversion (Defensive variant) &nbsp; <sub>`821`</sub>
+- Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
+- Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
+- Metamorphosis &nbsp; <sub>`834`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
+- Command Fallen — Mega Lunatic &nbsp; <sub>`908`</sub>
+- Command Fallen — Fallen Rush &nbsp; <sub>`909`</sub>
+- Command Fallen — Lifetime Damage &nbsp; <sub>`939`</sub>
+- Command Fallen &nbsp; <sub>`942`</sub>
 
 
 **8. lvl 40 Meta instead of Laalish** (24 nodes total)
 
-- Demon — Upgrade 1 (Archfiend) &nbsp; <sub>`625`</sub>
-- Demon — Upgrade 3 (Archfiend) &nbsp; <sub>`628`</sub>
-- Abyss Demon2 — Upgrade 4 (Defensive) &nbsp; <sub>`650`</sub>
-- Abyss Demon2 — Upgrade 1 (Defensive) &nbsp; <sub>`652`</sub>
-- Abyss Demon1 — Upgrade 1 (Defensive) &nbsp; <sub>`667`</sub>
-- Abyss Demon1 — Upgrade 4 (Defensive) &nbsp; <sub>`669`</sub>
-- Abyss Demon — Upgrade 3 (Core) &nbsp; <sub>`691`</sub>
-- Abyss Demon — Upgrade 1 (Core) &nbsp; <sub>`693`</sub>
-- Abyss Demon1 — Upgrade C (Defensive) &nbsp; <sub>`759`</sub>
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Abyss Demon2 — Upgrade C (Defensive) &nbsp; <sub>`814`</sub>
-- Abyss Demon2 (Defensive) &nbsp; <sub>`821`</sub>
-- Demon — Upgrade B (Archfiend) &nbsp; <sub>`825`</sub>
-- Abyss Demon — Upgrade B (Core) &nbsp; <sub>`827`</sub>
-- Demon (Archfiend) &nbsp; <sub>`834`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
+- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
+- Sigil of Subversion (Defensive variant) — Sigil of Lava &nbsp; <sub>`650`</sub>
+- Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion &nbsp; <sub>`652`</sub>
+- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
+- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive variant) — Cast Range &nbsp; <sub>`814`</sub>
+- Sigil of Subversion (Defensive variant) &nbsp; <sub>`821`</sub>
+- Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
+- Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
+- Metamorphosis &nbsp; <sub>`834`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
 - Demon1 — Upgrade 2 (Ultimate) &nbsp; <sub>`856`</sub>
 - Demon1 — Upgrade 3 (Ultimate) &nbsp; <sub>`859`</sub>
 - Demon1 (Ultimate) &nbsp; <sub>`891`</sub>
 - Demon1 — Upgrade C (Ultimate) &nbsp; <sub>`897`</sub>
-- Demon1 — Upgrade 2 (Basic) &nbsp; <sub>`908`</sub>
-- Demon1 — Upgrade 4 (Basic) &nbsp; <sub>`909`</sub>
-- Demon1 — Upgrade C (Basic) &nbsp; <sub>`939`</sub>
-- Demon1 (Basic) &nbsp; <sub>`942`</sub>
+- Command Fallen — Mega Lunatic &nbsp; <sub>`908`</sub>
+- Command Fallen — Fallen Rush &nbsp; <sub>`909`</sub>
+- Command Fallen — Lifetime Damage &nbsp; <sub>`939`</sub>
+- Command Fallen &nbsp; <sub>`942`</sub>
 
 
 **9. lvl 53 Full Meta** (24 nodes total)
 
-- Demon — Upgrade 1 (Archfiend) &nbsp; <sub>`625`</sub>
-- Demon — Upgrade 3 (Archfiend) &nbsp; <sub>`628`</sub>
-- Abyss Demon2 — Upgrade 4 (Defensive) &nbsp; <sub>`650`</sub>
-- Abyss Demon2 — Upgrade 1 (Defensive) &nbsp; <sub>`652`</sub>
-- Abyss Demon1 — Upgrade 1 (Defensive) &nbsp; <sub>`667`</sub>
-- Abyss Demon1 — Upgrade 4 (Defensive) &nbsp; <sub>`669`</sub>
-- Abyss Demon — Upgrade 3 (Core) &nbsp; <sub>`691`</sub>
-- Abyss Demon — Upgrade 1 (Core) &nbsp; <sub>`693`</sub>
-- Abyss Demon1 — Upgrade C (Defensive) &nbsp; <sub>`759`</sub>
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Abyss Demon2 — Upgrade C (Defensive) &nbsp; <sub>`814`</sub>
-- Abyss Demon2 (Defensive) &nbsp; <sub>`821`</sub>
-- Demon — Upgrade B (Archfiend) &nbsp; <sub>`825`</sub>
-- Abyss Demon — Upgrade B (Core) &nbsp; <sub>`827`</sub>
-- Demon (Archfiend) &nbsp; <sub>`834`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
+- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
+- Sigil of Subversion (Defensive variant) — Sigil of Lava &nbsp; <sub>`650`</sub>
+- Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion &nbsp; <sub>`652`</sub>
+- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
+- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive variant) — Cast Range &nbsp; <sub>`814`</sub>
+- Sigil of Subversion (Defensive variant) &nbsp; <sub>`821`</sub>
+- Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
+- Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
+- Metamorphosis &nbsp; <sub>`834`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
 - Demon1 — Upgrade 2 (Ultimate) &nbsp; <sub>`856`</sub>
 - Demon1 — Upgrade 3 (Ultimate) &nbsp; <sub>`859`</sub>
 - Demon1 (Ultimate) &nbsp; <sub>`891`</sub>
 - Demon1 — Upgrade C (Ultimate) &nbsp; <sub>`897`</sub>
-- Demon1 — Upgrade 2 (Basic) &nbsp; <sub>`908`</sub>
-- Demon1 — Upgrade 4 (Basic) &nbsp; <sub>`909`</sub>
-- Demon1 — Upgrade C (Basic) &nbsp; <sub>`939`</sub>
-- Demon1 (Basic) &nbsp; <sub>`942`</sub>
+- Command Fallen — Mega Lunatic &nbsp; <sub>`908`</sub>
+- Command Fallen — Fallen Rush &nbsp; <sub>`909`</sub>
+- Command Fallen — Lifetime Damage &nbsp; <sub>`939`</sub>
+- Command Fallen &nbsp; <sub>`942`</sub>
 
 
 **10. lvl 67 Nether Step** (24 nodes total)
 
-- Demon — Upgrade 1 (Archfiend) &nbsp; <sub>`625`</sub>
-- Demon — Upgrade 3 (Archfiend) &nbsp; <sub>`628`</sub>
-- Abyss Demon2 — Upgrade 4 (Defensive) &nbsp; <sub>`650`</sub>
-- Abyss Demon2 — Upgrade 1 (Defensive) &nbsp; <sub>`652`</sub>
-- Abyss Demon1 — Upgrade 1 (Defensive) &nbsp; <sub>`667`</sub>
-- Abyss Demon1 — Upgrade 4 (Defensive) &nbsp; <sub>`669`</sub>
-- Abyss Demon — Upgrade 3 (Core) &nbsp; <sub>`691`</sub>
-- Abyss Demon — Upgrade 1 (Core) &nbsp; <sub>`693`</sub>
-- Abyss Demon1 — Upgrade C (Defensive) &nbsp; <sub>`759`</sub>
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Abyss Demon2 — Upgrade C (Defensive) &nbsp; <sub>`814`</sub>
-- Abyss Demon2 (Defensive) &nbsp; <sub>`821`</sub>
-- Demon — Upgrade B (Archfiend) &nbsp; <sub>`825`</sub>
-- Abyss Demon — Upgrade B (Core) &nbsp; <sub>`827`</sub>
-- Demon (Archfiend) &nbsp; <sub>`834`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
+- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
+- Sigil of Subversion (Defensive variant) — Sigil of Lava &nbsp; <sub>`650`</sub>
+- Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion &nbsp; <sub>`652`</sub>
+- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
+- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive variant) — Cast Range &nbsp; <sub>`814`</sub>
+- Sigil of Subversion (Defensive variant) &nbsp; <sub>`821`</sub>
+- Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
+- Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
+- Metamorphosis &nbsp; <sub>`834`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
 - Demon1 — Upgrade 2 (Ultimate) &nbsp; <sub>`856`</sub>
 - Demon1 — Upgrade 3 (Ultimate) &nbsp; <sub>`859`</sub>
 - Demon1 (Ultimate) &nbsp; <sub>`891`</sub>
 - Demon1 — Upgrade C (Ultimate) &nbsp; <sub>`897`</sub>
-- Demon1 — Upgrade 2 (Basic) &nbsp; <sub>`908`</sub>
-- Demon1 — Upgrade 4 (Basic) &nbsp; <sub>`909`</sub>
-- Demon1 — Upgrade C (Basic) &nbsp; <sub>`939`</sub>
-- Demon1 (Basic) &nbsp; <sub>`942`</sub>
+- Command Fallen — Mega Lunatic &nbsp; <sub>`908`</sub>
+- Command Fallen — Fallen Rush &nbsp; <sub>`909`</sub>
+- Command Fallen — Lifetime Damage &nbsp; <sub>`939`</sub>
+- Command Fallen &nbsp; <sub>`942`</sub>
 
 
 **11. lvl 70 All Points** (24 nodes total)
 
-- Demon — Upgrade 1 (Archfiend) &nbsp; <sub>`625`</sub>
-- Demon — Upgrade 3 (Archfiend) &nbsp; <sub>`628`</sub>
-- Abyss Demon2 — Upgrade 4 (Defensive) &nbsp; <sub>`650`</sub>
-- Abyss Demon2 — Upgrade 1 (Defensive) &nbsp; <sub>`652`</sub>
-- Abyss Demon1 — Upgrade 1 (Defensive) &nbsp; <sub>`667`</sub>
-- Abyss Demon1 — Upgrade 4 (Defensive) &nbsp; <sub>`669`</sub>
-- Abyss Demon — Upgrade 3 (Core) &nbsp; <sub>`691`</sub>
-- Abyss Demon — Upgrade 1 (Core) &nbsp; <sub>`693`</sub>
-- Abyss Demon1 — Upgrade C (Defensive) &nbsp; <sub>`759`</sub>
-- Abyss Demon1 (Defensive) &nbsp; <sub>`761`</sub>
-- Abyss Demon2 — Upgrade C (Defensive) &nbsp; <sub>`814`</sub>
-- Abyss Demon2 (Defensive) &nbsp; <sub>`821`</sub>
-- Demon — Upgrade B (Archfiend) &nbsp; <sub>`825`</sub>
-- Abyss Demon — Upgrade B (Core) &nbsp; <sub>`827`</sub>
-- Demon (Archfiend) &nbsp; <sub>`834`</sub>
-- Abyss Demon (Core) &nbsp; <sub>`848`</sub>
+- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
+- Sigil of Subversion (Defensive variant) — Sigil of Lava &nbsp; <sub>`650`</sub>
+- Sigil of Subversion (Defensive variant) — Enhanced Sigil of Subversion &nbsp; <sub>`652`</sub>
+- Sigil of Subversion (Defensive node) — Enhanced Sigil of Subversion &nbsp; <sub>`667`</sub>
+- Sigil of Subversion (Defensive node) — Sigil of Lava &nbsp; <sub>`669`</sub>
+- Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
+- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Sigil of Subversion (Defensive node) — Slow &nbsp; <sub>`759`</sub>
+- Sigil of Subversion (Defensive node) &nbsp; <sub>`761`</sub>
+- Sigil of Subversion (Defensive variant) — Cast Range &nbsp; <sub>`814`</sub>
+- Sigil of Subversion (Defensive variant) &nbsp; <sub>`821`</sub>
+- Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
+- Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
+- Metamorphosis &nbsp; <sub>`834`</sub>
+- Dread Claws &nbsp; <sub>`848`</sub>
 - Demon1 — Upgrade 2 (Ultimate) &nbsp; <sub>`856`</sub>
 - Demon1 — Upgrade 3 (Ultimate) &nbsp; <sub>`859`</sub>
 - Demon1 (Ultimate) &nbsp; <sub>`891`</sub>
 - Demon1 — Upgrade C (Ultimate) &nbsp; <sub>`897`</sub>
-- Demon1 — Upgrade 2 (Basic) &nbsp; <sub>`908`</sub>
-- Demon1 — Upgrade 4 (Basic) &nbsp; <sub>`909`</sub>
-- Demon1 — Upgrade C (Basic) &nbsp; <sub>`939`</sub>
-- Demon1 (Basic) &nbsp; <sub>`942`</sub>
+- Command Fallen — Mega Lunatic &nbsp; <sub>`908`</sub>
+- Command Fallen — Fallen Rush &nbsp; <sub>`909`</sub>
+- Command Fallen — Lifetime Damage &nbsp; <sub>`939`</sub>
+- Command Fallen &nbsp; <sub>`942`</sub>
 
 
 
@@ -856,5 +856,5 @@ You can unlock 14 extra skill points for a total of 83. Check out our Season Ran
 ## 8. Data freshness
 - **guide**: <https://maxroll.gg/d4/build-guides/dread-claws-warlock-leveling-guide>
 - **planner**: <https://maxroll.gg/d4/planner/sf1n6g0v>
-- **Fetched:** 2026-05-02 22:34 UTC
+- **Fetched:** 2026-05-03 01:24 UTC
 - **Planner ID:** `sf1n6g0v`
