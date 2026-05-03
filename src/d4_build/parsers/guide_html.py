@@ -110,6 +110,14 @@ def parse_guide_html(html: str) -> GuideMeta:
     prof = soup.find(attrs={"data-d4-profile": True})
     if prof:
         planner_id = prof.get("data-d4-profile", "")
+    if not planner_id:
+        # Endgame guides reference the planner via URL only. Skip the
+        # `builds` index page; pick the first real planner id.
+        for m in re.finditer(r"/d4/planner/([a-z0-9]{6,12})", html):
+            cand = m.group(1)
+            if cand != "builds":
+                planner_id = cand
+                break
 
     refs: list[EntityRef] = []
     seen: set[int] = set()

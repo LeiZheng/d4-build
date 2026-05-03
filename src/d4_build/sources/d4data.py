@@ -264,7 +264,37 @@ class D4DataLookup:
             return n
         return _humanize_paragon_node_codename(codename)
 
-    def skill_node_label_for(self, class_slug: str, node_id: int | str) -> str:
+    def detect_node_id_offset(
+        self, class_slug: str, sample_ids: set[int] | list[int]
+    ) -> int:
+        """Pick the integer offset that yields the most matches in SkillKit.
+
+        Maxroll planners occasionally use ID schemes shifted from canonical
+        d4data dwIDs. Common shifts observed: 0, +8200, +8300, +8390, +8400,
+        +8500. Tries each candidate against the actual planner's node-id set
+        and returns the offset producing the highest hit rate.
+        """
+        if not sample_ids:
+            return 0
+        ids = list(sample_ids)
+        nm = self._load_skill_kit_node_map(class_slug)
+        if not nm:
+            return 0
+        candidates = [0, 8200, 8300, 8390, 8400, 8500, 8800, 9000]
+        best_off, best_hits = 0, -1
+        for off in candidates:
+            hits = sum(1 for i in ids if (i - off) in nm)
+            if hits > best_hits:
+                best_off, best_hits = off, hits
+        return best_off
+
+    def skill_node_label_for(
+        self,
+        class_slug: str,
+        node_id: int | str,
+        *,
+        id_offset: int = 0,
+    ) -> str:
         """Resolve a planner node ID to a humanized skill name.
 
         Lookup chain:
@@ -272,8 +302,8 @@ class D4DataLookup:
                -> "Dread Claws — Cascading Dread"
             2. Generic codename humanizer
                -> "Abyss Demon — Upgrade 2 (Core)"
-            3. ID-offset fallback for stale Maxroll planners that use
-               +8400-shifted IDs (e.g. Eviscerate Warlock).
+            3. ID-offset fallback (caller-supplied or +8400 default) for
+               stale Maxroll planners.
             4. "" when the SkillKit doesn't carry this node
         """
         try:
@@ -281,12 +311,11 @@ class D4DataLookup:
         except (TypeError, ValueError):
             return ""
         node_map = self._load_skill_kit_node_map(class_slug)
-        gbid = node_map.get(nid)
-        # Fallback: some Maxroll planners use ID+8400. Try that mapping
-        # before giving up.
-        if not gbid:
-            shifted = nid - 8400
-            gbid = node_map.get(shifted)
+        # Apply the caller-detected offset first.
+        gbid = node_map.get(nid - id_offset)
+        # Fallback: try the historical +8400 if the caller didn't pass one.
+        if not gbid and id_offset == 0:
+            gbid = node_map.get(nid - 8400)
         if not gbid:
             return ""
         # Try the precise mapping first (auto-extracts Mod names via this lookup).

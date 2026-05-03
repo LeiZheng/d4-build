@@ -179,13 +179,32 @@ def _resolve_node_label(
     class_slug: str,
     node_id: str,
     lookup: D4DataLookup | None,
+    id_offset: int = 0,
 ) -> str:
     """Resolve a planner node ID to a readable name. d4data wins, YAML is fallback."""
     if lookup:
-        n = lookup.skill_node_label_for(class_slug, node_id)
+        n = lookup.skill_node_label_for(class_slug, node_id, id_offset=id_offset)
         if n:
             return n
     return _node_override_for(class_slug, node_id)
+
+
+def _detect_id_offset(
+    variant: PlannerVariant | None,
+    class_slug: str,
+    lookup: D4DataLookup | None,
+) -> int:
+    """Auto-detect the node-id offset for this planner."""
+    if not variant or not variant.skill_tree or not lookup:
+        return 0
+    ids: set[int] = set()
+    for step in variant.skill_tree.get("steps", []) or []:
+        for k in (step.get("data") or {}).keys():
+            try:
+                ids.add(int(k))
+            except (TypeError, ValueError):
+                pass
+    return lookup.detect_node_id_offset(class_slug, ids)
 
 
 def _build_skill_tree_steps(
@@ -198,6 +217,7 @@ def _build_skill_tree_steps(
     raw_steps = variant.skill_tree.get("steps", []) or []
     out: list[SkillTreeStep] = []
     prev_total = 0
+    id_offset = _detect_id_offset(variant, class_slug, lookup)
     for i, step in enumerate(raw_steps, start=1):
         data = step.get("data") or {}
         if not isinstance(data, dict):
@@ -205,7 +225,10 @@ def _build_skill_tree_steps(
         nonzero = {k: int(v) for k, v in data.items() if int(v) > 0}
         total_points = sum(nonzero.values())
         node_ids = sorted(nonzero.keys(), key=lambda k: int(k))
-        node_labels = [_resolve_node_label(class_slug, nid, lookup) for nid in node_ids]
+        node_labels = [
+            _resolve_node_label(class_slug, nid, lookup, id_offset)
+            for nid in node_ids
+        ]
         out.append(
             SkillTreeStep(
                 order=i,
@@ -225,6 +248,7 @@ def _build_skill_point_clicks(
     variant: PlannerVariant | None,
     class_slug: str = "",
     lookup: D4DataLookup | None = None,
+    id_offset: int = 0,
 ) -> list[SkillPointClick]:
     """Flatten step-checkpoints into a per-level "click here" allocation order.
 
@@ -290,7 +314,7 @@ def _build_skill_point_clicks(
                 + min(i, max(levels_available - 1, 0))
             )
             label = (
-                _resolve_node_label(class_slug, node_id, lookup)
+                _resolve_node_label(class_slug, node_id, lookup, id_offset)
                 if class_slug
                 else ""
             )
@@ -708,7 +732,12 @@ def reconcile(
             progression_variant or variant, cls.id, d4data
         ),
         skill_point_clicks=_build_skill_point_clicks(
-            progression_variant or variant, cls.id, d4data
+            progression_variant or variant,
+            cls.id,
+            d4data,
+            id_offset=_detect_id_offset(
+                progression_variant or variant, cls.id, d4data
+            ),
         ),
         enchants=_readable_enchants(variant, d4data),
         gear=_build_items(
