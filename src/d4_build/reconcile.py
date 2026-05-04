@@ -244,6 +244,60 @@ def _build_skill_tree_steps(
     return out
 
 
+# D4 skill-tree tier order (clusters unlock in this order as you spend points).
+# Lower tier_rank = takeable earlier. Used to order clicks within each step
+# so the first click is never gate-locked.
+_CLUSTER_TIER_RANK = {
+    "Basic": 0,
+    "Core": 1,
+    "Defensive": 2,
+    "Sigil": 3,
+    "Mastery": 4,
+    "Archfiend": 4,
+    "Ultimate": 5,
+    "Capstone": 6,
+}
+
+# Within a tier, take base nodes first, then Enhanced (Upgrade1), then specs.
+_KIND_RANK = {"base": 0, "rank_up": 1, "enhanced": 2, "spec": 3}
+
+
+def _click_sort_key(label: str, new_rank: int, node_id: str) -> tuple[int, int, int]:
+    """Tier-then-kind-then-id sort key for click ordering."""
+    cluster = ""
+    for kw in ("Basic", "Core", "Defensive", "Sigil", "Archfiend",
+               "Mastery", "Ultimate", "Capstone"):
+        if f"({kw})" in (label or "") or f"({kw} " in (label or ""):
+            cluster = kw
+            break
+    if not cluster:
+        # Try display-name → cluster reverse lookup
+        from .skill_modifier_mapping import display_name_to_cluster
+        base = (label or "")
+        if base.startswith("Enhanced "):
+            base = base[len("Enhanced "):]
+        if " — " in base:
+            base = base.split(" — ")[0]
+        cluster = display_name_to_cluster().get(base.strip(), "")
+
+    tier = _CLUSTER_TIER_RANK.get(cluster, 99)
+
+    if new_rank > 1:
+        kind = "rank_up"
+    elif (label or "").startswith("Enhanced "):
+        kind = "enhanced"
+    elif " — " in (label or ""):
+        kind = "spec"
+    else:
+        kind = "base"
+
+    try:
+        nid_int = int(node_id)
+    except (TypeError, ValueError):
+        nid_int = 0
+    return (tier, _KIND_RANK[kind], nid_int)
+
+
 def _build_skill_point_clicks(
     variant: PlannerVariant | None,
     class_slug: str = "",
@@ -287,8 +341,17 @@ def _build_skill_point_clicks(
             delta = rank - prev_ranks.get(node_id, 0)
             for r in range(prev_ranks.get(node_id, 0) + 1, rank + 1):
                 added.append((node_id, r))
-        # Stable, basic-first heuristic: order by integer node id ascending.
-        added.sort(key=lambda nr: (int(nr[0]), nr[1]))
+        # Tier-then-kind ordering: first click must be takeable (Basic before
+        # Core before Defensive). Resolves labels to find cluster.
+        def _key(nr: tuple[str, int]) -> tuple[int, int, int]:
+            nid, rank = nr
+            label = (
+                _resolve_node_label(class_slug, nid, lookup, id_offset)
+                if class_slug
+                else ""
+            )
+            return _click_sort_key(label, rank, nid)
+        added.sort(key=_key)
 
         cur_total = sum(cur_ranks.values())
         points_added = max(cur_total - prev_total, 0)
