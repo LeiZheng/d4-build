@@ -22,40 +22,49 @@
 Warlock_Basic_Demon2:
   display_name: "Hellion Sting"
   power_file: Power_Warlock_TailWhip
+  enhanced_description: "consecutive hits on the same enemy deal more damage and apply Eviscerated"
 
 Warlock_Basic_Demon1:
   display_name: "Command Fallen"
   power_file: Power_Warlock_Summon_Lunatic
+  enhanced_description: "your fallen pets deal increased damage and last longer"
 
 Warlock_Basic_Abyss:
   display_name: "Doom"
   power_file: Power_Warlock_HexCast
+  enhanced_description: "Doom-cursed enemies take +X% damage from all sources"
 
 Warlock_Basic_Hellfire:
   display_name: "Brimstone"
   power_file: Power_Warlock_Brimstone
+  enhanced_description: "Burning enemies take +X% damage from Brimstone"
 
 # === Core cluster ===
 
 Warlock_Core_AbyssDemon:
   display_name: "Dread Claws"
   power_file: Power_Warlock_ShadowShred
+  enhanced_description: "consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit"
 
 Warlock_Core_Abyss:
   display_name: "Umbral Chains"
   power_file: Power_Warlock_ChainLash
+  enhanced_description: "Slowed enemies take more damage; chained enemies share the Slow"
 
 Warlock_Core_Demon:
   display_name: "Bombardment"
   power_file: Power_Warlock_DemonicBombard
+  enhanced_description: "Bombardment hits deal more damage to Crowd Controlled enemies"
 
 Warlock_Core_Hellfire:
   display_name: "Blazing Scream"
   power_file: Power_Warlock_BurningSkull
+  enhanced_description: "Blazing Scream Burns enemies for X% increased damage over time"
 
 Warlock_Core_HellfireDemon:
   display_name: "Hell Fracture"
   power_file: Power_Warlock_Fissure
+  enhanced_description: "Hell Fracture cracks deal damage faster against Vulnerable enemies"
 
 # === Defensive cluster ===
 
@@ -68,65 +77,80 @@ Warlock_Core_HellfireDemon:
 Warlock_Defensive_AbyssDemon1:
   display_name: "Sigil of Subversion (Defensive A)"
   power_file: Power_Warlock_SigilOfShadows
+  enhanced_description: "Sigil grants Damage Reduction while you stand within it"
 
 Warlock_Defensive_AbyssDemon2:
   display_name: "Sigil of Subversion (Defensive B)"
   power_file: Power_Warlock_SigilOfShadows
+  enhanced_description: "Sigil grants Damage Reduction while you stand within it (alt position in tree)"
 
 Warlock_Defensive_Demon:
   display_name: "Dark Prison"
   power_file: Power_Warlock_ChainTotem
+  enhanced_description: "Dark Prison gains charges; CC'd enemies take more damage"
 
 Warlock_Defensive_HellfireDemon:
   display_name: "Wall of Agony"
   power_file: Power_Warlock_Demon_Wall
+  enhanced_description: "Wall of Agony lasts longer and reduces enemy damage dealt"
 
 # === Sigil cluster ===
 
 Warlock_Sigil_Abyss:
   display_name: "Sigil of Subversion"
   power_file: Power_Warlock_SigilOfShadows
+  enhanced_description: "Sigil duration extended; allies in the Sigil gain Movement Speed"
 
 Warlock_Sigil_Demon:
   display_name: "Sigil of Summons"
   power_file: Power_Warlock_SigilOfSummons
+  enhanced_description: "Sigil summons more demons; demons spawned from Sigil deal extra damage"
 
 Warlock_Sigil_Hellfire:
   display_name: "Sigil of Chaos"
   power_file: Power_Warlock_SigilOfFlames
+  enhanced_description: "Sigil pulses for fire damage; Burning enemies take more damage"
 
 # === Archfiend cluster ===
 
 Warlock_Archfiend_Demon:
   display_name: "Metamorphosis"
   power_file: Power_Warlock_ArchDemon
+  enhanced_description: "Metamorphosis lasts longer; transformed form gains Damage Reduction"
 
 Warlock_Archfiend_AbyssDemon:
   display_name: "Demonform"
   power_file: Power_Warlock_Demonform
+  enhanced_description: "Demonform attacks gain bonus damage and Lucky Hit chance"
 
 Warlock_Archfiend_HellfireDemon1:
   display_name: "Summon Ae'grom"
   power_file: Power_Warlock_Summon_Legion_Demon
+  enhanced_description: "Ae'grom's attacks Burn enemies; Burning enemies take more damage from you"
 
 Warlock_Archfiend_HellfireDemon2:
   display_name: "Tyrant's Grasp"
   power_file: Power_Warlock_DemonicGrasp
+  enhanced_description: "Grasp pulls more enemies; pulled enemies take +damage"
 
 # === Ultimate cluster ===
 
 Warlock_Ultimate_Demon1:
   display_name: "Fiend of Abaddon"
   power_file: Power_Warlock_UltimateDemon
+  enhanced_description: "Fiend of Abaddon's attacks deal more damage; cooldown reduced"
 
 Warlock_Ultimate_Demon2:
   display_name: "Apocalypse"
   power_file: Power_Warlock_Doombringer
+  enhanced_description: "Apocalypse hits more enemies and deals additional damage"
 
 Warlock_Ultimate_Abyss:
   display_name: "Rampage"
   power_file: Power_Warlock_DemonicSlash
+  enhanced_description: "Rampage swings faster; killing an enemy with Rampage refunds Wrath"
 
 Warlock_Ultimate_Hellfire:
   display_name: "Terror Swarm"
   power_file: Power_Warlock_HellStorm
+  enhanced_description: "Terror Swarm spawns more swarmers; swarmers ignite enemies on contact"

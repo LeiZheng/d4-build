@@ -103,8 +103,12 @@ def resolve_modifier_name(gbid: str, lookup=None) -> tuple[str, str]:
     if suffix in upgrades:
         return skill_display, str(upgrades[suffix])
 
-    # 2. Upgrade1 is always the "Enhanced" flat buff variant.
+    # 2. Upgrade1 is always the "Enhanced" flat buff variant. If the YAML
+    # carries an enhanced_description, append it for clarity.
     if suffix == "Upgrade1" and skill_display:
+        enh_desc = entry.get("enhanced_description") or ""
+        if enh_desc:
+            return skill_display, f"Enhanced {skill_display} — {enh_desc}"
         return skill_display, f"Enhanced {skill_display}"
 
     # 3. Auto-extract from Power file via lookup.

@@ -1,6 +1,6 @@
 # Dread Claws Warlock — Leveling
 **Season:** Season 13 - Season of Reckoning
-**Tier:** S &nbsp;|&nbsp; **Build ID:** `sf1n6g0v` &nbsp;|&nbsp; **Fetched:** 2026-05-04 02:55 UTC
+**Tier:** S &nbsp;|&nbsp; **Build ID:** `sf1n6g0v` &nbsp;|&nbsp; **Fetched:** 2026-05-04 03:02 UTC
 
 > _Source of truth: Maxroll. The ranked damage breakdown below is build-specific._
 
@@ -63,21 +63,21 @@ Spend each skill point in this exact order. Each row is **one click** in the pla
 | 1 | 1 | Hellion Sting | _lvl 4 Core_ |
 | 2 | 2 | Dread Claws | _lvl 4 Core_ |
 | 3 | 3 | Sigil of Subversion (Defensive A) | _lvl 4 Core_ |
-| 5 | 4 | Enhanced Hellion Sting | _lvl 9 Eviscerate_ |
+| 5 | 4 | Enhanced Hellion Sting — consecutive hits on the same enemy deal more damage and apply Eviscerated | _lvl 9 Eviscerate_ |
 | 6 | 5 | Hellion Sting — Tail Spikes | _lvl 9 Eviscerate_ |
-| 7 | 6 | Enhanced Dread Claws | _lvl 9 Eviscerate_ |
-| 8 | 7 | Enhanced Sigil of Subversion (Defensive A) | _lvl 9 Eviscerate_ |
+| 7 | 6 | Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit | _lvl 9 Eviscerate_ |
+| 8 | 7 | Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it | _lvl 9 Eviscerate_ |
 | 9 | 8 | Metamorphosis | _lvl 9 Eviscerate_ |
 | 10 | 9 | Dread Claws — Enveloping Terror | _lvl 13 Sigil_ |
 | 11 | 10 | Sigil of Subversion (Defensive A) — Sigil of Lava | _lvl 13 Sigil_ |
 | 12 | 11 | Sigil of Subversion | _lvl 13 Sigil_ |
-| 13 | 12 | Enhanced Metamorphosis | _lvl 13 Sigil_ |
+| 13 | 12 | Enhanced Metamorphosis — Metamorphosis lasts longer; transformed form gains Damage Reduction | _lvl 13 Sigil_ |
 | 14 | 13 | Hellion Sting — Wrath | _lvl 15 Main Variants_ |
 | 15 | 14 | Dread Claws — Cost Reduction | _lvl 15 Main Variants_ |
 | 16 | 15 | Dread Claws → rank 2 | _lvl 23 Infiltration Trails_ |
 | 17 | 16 | Dread Claws → rank 3 | _lvl 23 Infiltration Trails_ |
 | 18 | 17 | Dread Claws → rank 4 | _lvl 23 Infiltration Trails_ |
-| 19 | 18 | Enhanced Sigil of Subversion | _lvl 23 Infiltration Trails_ |
+| 19 | 18 | Enhanced Sigil of Subversion — Sigil duration extended; allies in the Sigil gain Movement Speed | _lvl 23 Infiltration Trails_ |
 | 20 | 19 | Sigil of Subversion — Seekers | _lvl 23 Infiltration Trails_ |
 | 21 | 20 | Sigil of Subversion — Movement Speed | _lvl 23 Infiltration Trails_ |
 | 22 | 21 | Metamorphosis — Destruction Demon | _lvl 23 Infiltration Trails_ |
@@ -98,7 +98,7 @@ Spend each skill point in this exact order. Each row is **one click** in the pla
 | 35 | 36 | Command Fallen — Fallen Rush | _lvl 34 Respec Fallen + Prison_ |
 | 35 | 37 | Command Fallen — Lifetime Damage | _lvl 34 Respec Fallen + Prison_ |
 | 35 | 38 | Sigil of Subversion (Defensive B) | _lvl 34 Respec Fallen + Prison_ |
-| 35 | 39 | Enhanced Sigil of Subversion (Defensive B) | _lvl 34 Respec Fallen + Prison_ |
+| 35 | 39 | Enhanced Sigil of Subversion (Defensive B) — Sigil grants Damage Reduction while you stand within it (alt position in tree) | _lvl 34 Respec Fallen + Prison_ |
 | 35 | 40 | Sigil of Subversion (Defensive B) — Sigil of Lava | _lvl 34 Respec Fallen + Prison_ |
 | 35 | 41 | Sigil of Subversion (Defensive B) — Slow | _lvl 34 Respec Fallen + Prison_ |
 | 35 | 42 | Dread Claws → rank 15 | _lvl 40 Meta instead of Laalish_ |
@@ -170,60 +170,60 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 **2. lvl 9 Eviscerate** (8 nodes total)
 
-- Enhanced Sigil of Subversion (Defensive A) &nbsp; <sub>`667`</sub>
-- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it &nbsp; <sub>`667`</sub>
+- Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit &nbsp; <sub>`693`</sub>
 - Sigil of Subversion (Defensive A) &nbsp; <sub>`761`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
 - Dread Claws &nbsp; <sub>`848`</sub>
 - Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
-- Enhanced Hellion Sting &nbsp; <sub>`904`</sub>
+- Enhanced Hellion Sting — consecutive hits on the same enemy deal more damage and apply Eviscerated &nbsp; <sub>`904`</sub>
 - Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **3. lvl 13 Sigil** (12 nodes total)
 
-- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
-- Enhanced Sigil of Subversion (Defensive A) &nbsp; <sub>`667`</sub>
+- Enhanced Metamorphosis — Metamorphosis lasts longer; transformed form gains Damage Reduction &nbsp; <sub>`625`</sub>
+- Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it &nbsp; <sub>`667`</sub>
 - Sigil of Subversion (Defensive A) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
-- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit &nbsp; <sub>`693`</sub>
 - Sigil of Subversion (Defensive A) &nbsp; <sub>`761`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
 - Sigil of Subversion &nbsp; <sub>`838`</sub>
 - Dread Claws &nbsp; <sub>`848`</sub>
 - Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
-- Enhanced Hellion Sting &nbsp; <sub>`904`</sub>
+- Enhanced Hellion Sting — consecutive hits on the same enemy deal more damage and apply Eviscerated &nbsp; <sub>`904`</sub>
 - Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **4. lvl 15 Main Variants** (14 nodes total)
 
-- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
-- Enhanced Sigil of Subversion (Defensive A) &nbsp; <sub>`667`</sub>
+- Enhanced Metamorphosis — Metamorphosis lasts longer; transformed form gains Damage Reduction &nbsp; <sub>`625`</sub>
+- Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it &nbsp; <sub>`667`</sub>
 - Sigil of Subversion (Defensive A) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
-- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit &nbsp; <sub>`693`</sub>
 - Sigil of Subversion (Defensive A) &nbsp; <sub>`761`</sub>
 - Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
 - Metamorphosis &nbsp; <sub>`834`</sub>
 - Sigil of Subversion &nbsp; <sub>`838`</sub>
 - Dread Claws &nbsp; <sub>`848`</sub>
 - Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
-- Enhanced Hellion Sting &nbsp; <sub>`904`</sub>
+- Enhanced Hellion Sting — consecutive hits on the same enemy deal more damage and apply Eviscerated &nbsp; <sub>`904`</sub>
 - Hellion Sting — Wrath &nbsp; <sub>`933`</sub>
 - Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **5. lvl 23 Infiltration Trails** (19 nodes total)
 
-- Enhanced Sigil of Subversion &nbsp; <sub>`607`</sub>
+- Enhanced Sigil of Subversion — Sigil duration extended; allies in the Sigil gain Movement Speed &nbsp; <sub>`607`</sub>
 - Sigil of Subversion — Seekers &nbsp; <sub>`610`</sub>
-- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Enhanced Metamorphosis — Metamorphosis lasts longer; transformed form gains Damage Reduction &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
-- Enhanced Sigil of Subversion (Defensive A) &nbsp; <sub>`667`</sub>
+- Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it &nbsp; <sub>`667`</sub>
 - Sigil of Subversion (Defensive A) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
-- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit &nbsp; <sub>`693`</sub>
 - Sigil of Subversion (Defensive A) &nbsp; <sub>`761`</sub>
 - Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
 - Dread Claws — Cost Reduction &nbsp; <sub>`827`</sub>
@@ -232,21 +232,21 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 - Sigil of Subversion &nbsp; <sub>`838`</sub>
 - Dread Claws &nbsp; <sub>`848`</sub>
 - Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
-- Enhanced Hellion Sting &nbsp; <sub>`904`</sub>
+- Enhanced Hellion Sting — consecutive hits on the same enemy deal more damage and apply Eviscerated &nbsp; <sub>`904`</sub>
 - Hellion Sting — Wrath &nbsp; <sub>`933`</sub>
 - Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **6. lvl 34 Recall Shadows** (20 nodes total)
 
-- Enhanced Sigil of Subversion &nbsp; <sub>`607`</sub>
+- Enhanced Sigil of Subversion — Sigil duration extended; allies in the Sigil gain Movement Speed &nbsp; <sub>`607`</sub>
 - Sigil of Subversion — Seekers &nbsp; <sub>`610`</sub>
-- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Enhanced Metamorphosis — Metamorphosis lasts longer; transformed form gains Damage Reduction &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
-- Enhanced Sigil of Subversion (Defensive A) &nbsp; <sub>`667`</sub>
+- Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it &nbsp; <sub>`667`</sub>
 - Sigil of Subversion (Defensive A) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
-- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit &nbsp; <sub>`693`</sub>
 - Sigil of Subversion (Defensive A) — Slow &nbsp; <sub>`759`</sub>
 - Sigil of Subversion (Defensive A) &nbsp; <sub>`761`</sub>
 - Metamorphosis — Maximum Life &nbsp; <sub>`825`</sub>
@@ -256,21 +256,21 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 - Sigil of Subversion &nbsp; <sub>`838`</sub>
 - Dread Claws &nbsp; <sub>`848`</sub>
 - Hellion Sting — Tail Spikes &nbsp; <sub>`901`</sub>
-- Enhanced Hellion Sting &nbsp; <sub>`904`</sub>
+- Enhanced Hellion Sting — consecutive hits on the same enemy deal more damage and apply Eviscerated &nbsp; <sub>`904`</sub>
 - Hellion Sting — Wrath &nbsp; <sub>`933`</sub>
 - Hellion Sting &nbsp; <sub>`944`</sub>
 
 
 **7. lvl 34 Respec Fallen + Prison** (20 nodes total)
 
-- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Enhanced Metamorphosis — Metamorphosis lasts longer; transformed form gains Damage Reduction &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
 - Sigil of Subversion (Defensive B) — Sigil of Lava &nbsp; <sub>`650`</sub>
-- Enhanced Sigil of Subversion (Defensive B) &nbsp; <sub>`652`</sub>
-- Enhanced Sigil of Subversion (Defensive A) &nbsp; <sub>`667`</sub>
+- Enhanced Sigil of Subversion (Defensive B) — Sigil grants Damage Reduction while you stand within it (alt position in tree) &nbsp; <sub>`652`</sub>
+- Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it &nbsp; <sub>`667`</sub>
 - Sigil of Subversion (Defensive A) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
-- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit &nbsp; <sub>`693`</sub>
 - Sigil of Subversion (Defensive A) — Slow &nbsp; <sub>`759`</sub>
 - Sigil of Subversion (Defensive A) &nbsp; <sub>`761`</sub>
 - Sigil of Subversion (Defensive B) — Slow &nbsp; <sub>`814`</sub>
@@ -287,14 +287,14 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 **8. lvl 40 Meta instead of Laalish** (24 nodes total)
 
-- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Enhanced Metamorphosis — Metamorphosis lasts longer; transformed form gains Damage Reduction &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
 - Sigil of Subversion (Defensive B) — Sigil of Lava &nbsp; <sub>`650`</sub>
-- Enhanced Sigil of Subversion (Defensive B) &nbsp; <sub>`652`</sub>
-- Enhanced Sigil of Subversion (Defensive A) &nbsp; <sub>`667`</sub>
+- Enhanced Sigil of Subversion (Defensive B) — Sigil grants Damage Reduction while you stand within it (alt position in tree) &nbsp; <sub>`652`</sub>
+- Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it &nbsp; <sub>`667`</sub>
 - Sigil of Subversion (Defensive A) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
-- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit &nbsp; <sub>`693`</sub>
 - Sigil of Subversion (Defensive A) — Slow &nbsp; <sub>`759`</sub>
 - Sigil of Subversion (Defensive A) &nbsp; <sub>`761`</sub>
 - Sigil of Subversion (Defensive B) — Slow &nbsp; <sub>`814`</sub>
@@ -315,14 +315,14 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 **9. lvl 53 Full Meta** (24 nodes total)
 
-- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Enhanced Metamorphosis — Metamorphosis lasts longer; transformed form gains Damage Reduction &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
 - Sigil of Subversion (Defensive B) — Sigil of Lava &nbsp; <sub>`650`</sub>
-- Enhanced Sigil of Subversion (Defensive B) &nbsp; <sub>`652`</sub>
-- Enhanced Sigil of Subversion (Defensive A) &nbsp; <sub>`667`</sub>
+- Enhanced Sigil of Subversion (Defensive B) — Sigil grants Damage Reduction while you stand within it (alt position in tree) &nbsp; <sub>`652`</sub>
+- Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it &nbsp; <sub>`667`</sub>
 - Sigil of Subversion (Defensive A) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
-- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit &nbsp; <sub>`693`</sub>
 - Sigil of Subversion (Defensive A) — Slow &nbsp; <sub>`759`</sub>
 - Sigil of Subversion (Defensive A) &nbsp; <sub>`761`</sub>
 - Sigil of Subversion (Defensive B) — Slow &nbsp; <sub>`814`</sub>
@@ -343,14 +343,14 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 **10. lvl 67 Nether Step** (24 nodes total)
 
-- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Enhanced Metamorphosis — Metamorphosis lasts longer; transformed form gains Damage Reduction &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
 - Sigil of Subversion (Defensive B) — Sigil of Lava &nbsp; <sub>`650`</sub>
-- Enhanced Sigil of Subversion (Defensive B) &nbsp; <sub>`652`</sub>
-- Enhanced Sigil of Subversion (Defensive A) &nbsp; <sub>`667`</sub>
+- Enhanced Sigil of Subversion (Defensive B) — Sigil grants Damage Reduction while you stand within it (alt position in tree) &nbsp; <sub>`652`</sub>
+- Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it &nbsp; <sub>`667`</sub>
 - Sigil of Subversion (Defensive A) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
-- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit &nbsp; <sub>`693`</sub>
 - Sigil of Subversion (Defensive A) — Slow &nbsp; <sub>`759`</sub>
 - Sigil of Subversion (Defensive A) &nbsp; <sub>`761`</sub>
 - Sigil of Subversion (Defensive B) — Slow &nbsp; <sub>`814`</sub>
@@ -371,14 +371,14 @@ Names resolve via d4data's `SkillKit/<class>.skl.json`, walking the `arNodes` ma
 
 **11. lvl 70 All Points** (24 nodes total)
 
-- Enhanced Metamorphosis &nbsp; <sub>`625`</sub>
+- Enhanced Metamorphosis — Metamorphosis lasts longer; transformed form gains Damage Reduction &nbsp; <sub>`625`</sub>
 - Metamorphosis — Destruction Demon &nbsp; <sub>`628`</sub>
 - Sigil of Subversion (Defensive B) — Sigil of Lava &nbsp; <sub>`650`</sub>
-- Enhanced Sigil of Subversion (Defensive B) &nbsp; <sub>`652`</sub>
-- Enhanced Sigil of Subversion (Defensive A) &nbsp; <sub>`667`</sub>
+- Enhanced Sigil of Subversion (Defensive B) — Sigil grants Damage Reduction while you stand within it (alt position in tree) &nbsp; <sub>`652`</sub>
+- Enhanced Sigil of Subversion (Defensive A) — Sigil grants Damage Reduction while you stand within it &nbsp; <sub>`667`</sub>
 - Sigil of Subversion (Defensive A) — Sigil of Lava &nbsp; <sub>`669`</sub>
 - Dread Claws — Enveloping Terror &nbsp; <sub>`691`</sub>
-- Enhanced Dread Claws &nbsp; <sub>`693`</sub>
+- Enhanced Dread Claws — consecutive Dread Claws hits gain +damage; in Shadowform, restores Wrath on Lucky Hit &nbsp; <sub>`693`</sub>
 - Sigil of Subversion (Defensive A) — Slow &nbsp; <sub>`759`</sub>
 - Sigil of Subversion (Defensive A) &nbsp; <sub>`761`</sub>
 - Sigil of Subversion (Defensive B) — Slow &nbsp; <sub>`814`</sub>
@@ -907,5 +907,5 @@ You can unlock 14 extra skill points for a total of 83. Check out our Season Ran
 ## 8. Data freshness
 - **guide**: <https://maxroll.gg/d4/build-guides/dread-claws-warlock-leveling-guide>
 - **planner**: <https://maxroll.gg/d4/planner/sf1n6g0v>
-- **Fetched:** 2026-05-04 02:55 UTC
+- **Fetched:** 2026-05-04 03:02 UTC
 - **Planner ID:** `sf1n6g0v`
