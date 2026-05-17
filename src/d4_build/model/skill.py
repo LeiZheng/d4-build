@@ -45,4 +45,5 @@ class SkillPointClick(BaseModel):
     new_rank: int = 1
     step_name: str = ""  # which named milestone this click belongs to
     cumulative_total: int = 0
+    cluster: str = ""  # SkillKit cluster (Basic/Core/Defensive/Sigil/...)
 

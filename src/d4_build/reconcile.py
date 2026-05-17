@@ -381,6 +381,34 @@ def _build_skill_point_clicks(
                 if class_slug
                 else ""
             )
+            # Derive cluster directly from SkillKit gbid (works for ALL classes
+            # even when YAML doesn't have a mapping).
+            cluster_from_gbid = ""
+            if lookup and class_slug:
+                node_map = lookup._load_skill_kit_node_map(class_slug)
+                gbid = node_map.get(int(node_id) - id_offset) or node_map.get(int(node_id))
+                if gbid:
+                    parts = gbid.split("_")
+                    for p in parts[1:]:
+                        if p in ("Basic", "Core", "Defensive", "Sigil", "Mastery",
+                                 "Archfiend", "Ultimate", "Capstone", "Special"):
+                            cluster_from_gbid = p
+                            break
+                    # Fallback for classes whose gbid uses `<Class>_Unlock_<Skill>`
+                    # pattern (Sorcerer / Barb / etc. older classes). Read the
+                    # Power file's eCategory via the skill-name portion.
+                    if not cluster_from_gbid and len(parts) >= 3 and parts[1] == "Unlock":
+                        skill_name = "_".join(parts[2:])
+                        # Power files use the class's full name; map abbrev to full.
+                        full_class = {
+                            "Sorc": "Sorcerer", "Barb": "Barbarian",
+                            "Necro": "Necromancer", "Druid": "Druid",
+                            "Rogue": "Rogue", "Spiritborn": "Spiritborn",
+                            "Warlock": "Warlock",
+                        }.get(parts[0], parts[0])
+                        cluster_from_gbid = lookup.power_category_for(
+                            f"Power_{full_class}_{skill_name}"
+                        )
             out.append(
                 SkillPointClick(
                     level=level,
@@ -390,6 +418,7 @@ def _build_skill_point_clicks(
                     new_rank=new_rank,
                     step_name=step_name,
                     cumulative_total=prev_total + i + 1,
+                    cluster=cluster_from_gbid,
                 )
             )
 

@@ -68,13 +68,18 @@ class EvaluationWeights(BaseModel):
 def _classify_click(click: SkillPointClick) -> tuple[str, str]:
     """Return (cluster_kind, click_kind) classification for a click."""
     label = click.node_label or ""
-    cluster = ""
-    # 1. Old humanized form: "Demon (Core)" — has the cluster in parens.
-    for kw in ("Basic", "Core", "Defensive", "Sigil", "Archfiend",
-               "Mastery", "Ultimate", "Capstone", "Special"):
-        if f"({kw})" in label:
-            cluster = kw
-            break
+
+    # 0. Best signal: cluster directly extracted from the SkillKit gbid at
+    # reconcile time. Works for ANY class without needing YAML coverage.
+    cluster = click.cluster or ""
+
+    if not cluster:
+        # 1. Old humanized form: "Demon (Core)" — has the cluster in parens.
+        for kw in ("Basic", "Core", "Defensive", "Sigil", "Archfiend",
+                   "Mastery", "Ultimate", "Capstone", "Special"):
+            if f"({kw})" in label:
+                cluster = kw
+                break
 
     # 2. New mapped form: "Dread Claws — Cascading Dread" — look up via
     # the display_name-to-cluster table.

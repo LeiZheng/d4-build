@@ -264,6 +264,41 @@ class D4DataLookup:
             return n
         return _humanize_paragon_node_codename(codename)
 
+    def power_category_for(self, power_codename: str) -> str:
+        """Read eCategory from a Power file and return a cluster name.
+
+        Used as a fallback for classes whose SkillKit gbid doesn't carry
+        a cluster keyword (e.g. Sorcerer's `Sorc_Unlock_FrozenOrb`).
+        """
+        cache_key = f"power_cat:{power_codename}"
+        if cache_key in self._memo:
+            return self._memo[cache_key] or ""
+        if not self.is_available():
+            self._memo[cache_key] = None
+            return ""
+        pow_base = power_codename[len("Power_"):] if power_codename.startswith("Power_") else power_codename
+        path = self.power_dir / f"{pow_base}.pow.json"
+        if not path.exists():
+            self._memo[cache_key] = None
+            return ""
+        try:
+            d = json.loads(path.read_text())
+        except (OSError, json.JSONDecodeError):
+            self._memo[cache_key] = None
+            return ""
+        cat = d.get("eCategory")
+        # eCategory mapping verified against Sorcerer skills.
+        cluster = {
+            0: "Basic",
+            1: "Core",
+            2: "Defensive",
+            3: "Mastery",   # Conjuration/Mastery merge here
+            4: "Sigil",
+            5: "Ultimate",
+        }.get(cat, "")
+        self._memo[cache_key] = cluster or None
+        return cluster
+
     def detect_node_id_offset(
         self, class_slug: str, sample_ids: set[int] | list[int]
     ) -> int:
